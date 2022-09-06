@@ -1,4 +1,4 @@
-# freebankapp
+# freeda_app
 
 A new Flutter project.
 
