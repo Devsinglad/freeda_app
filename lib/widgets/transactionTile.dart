@@ -43,7 +43,7 @@ Widget transactionTile({
           ],
         ),
         SizedBox(
-          width: 130,
+          width: 100,
         ),
         MyText(
           title: amount,

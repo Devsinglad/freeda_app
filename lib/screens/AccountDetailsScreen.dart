@@ -54,42 +54,46 @@ class AccountDetailsScreen extends StatelessWidget {
                         weight: FontWeight.bold,
                       ),
                       CustomButton(
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              CustomButton(
-                                  Center(
-                                    child: MyText(
-                                      title: 'Transfered',
-                                      size: 18,
-                                      color: Color(0xff151940),
-                                      weight: FontWeight.w500,
+                          Padding(
+                            padding:
+                                const EdgeInsets.symmetric(horizontal: 2.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                CustomButton(
+                                    Center(
+                                      child: MyText(
+                                        title: 'Transfered',
+                                        size: 18,
+                                        color: Color(0xff151940),
+                                        weight: FontWeight.w500,
+                                      ),
                                     ),
-                                  ),
-                                  53,
-                                  162,
-                                  Color(0xffF5F6FA),
-                                  8,
-                                  Colors.transparent,
-                                  0,
-                                  0),
-                              CustomButton(
-                                  Center(
-                                    child: MyText(
-                                      title: 'Received',
-                                      size: 18,
-                                      color: Color(0xff151940),
-                                      weight: FontWeight.w500,
+                                    53,
+                                    162,
+                                    Color(0xffF5F6FA),
+                                    8,
+                                    Colors.transparent,
+                                    0,
+                                    0),
+                                CustomButton(
+                                    Center(
+                                      child: MyText(
+                                        title: 'Received',
+                                        size: 18,
+                                        color: Color(0xff151940),
+                                        weight: FontWeight.w500,
+                                      ),
                                     ),
-                                  ),
-                                  53,
-                                  162,
-                                  Colors.transparent,
-                                  8,
-                                  Colors.transparent,
-                                  0,
-                                  0),
-                            ],
+                                    53,
+                                    162,
+                                    Colors.transparent,
+                                    8,
+                                    Colors.transparent,
+                                    0,
+                                    0),
+                              ],
+                            ),
                           ),
                           73,
                           332,
