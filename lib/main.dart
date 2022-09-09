@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:freeda_app/screens/AccountDetailsScreen.dart';
 import 'package:freeda_app/screens/BalanceScreen.dart';
+import 'package:freeda_app/screens/BankScreen.dart';
 import 'package:freeda_app/screens/Identity_Verification.dart';
+import 'package:freeda_app/screens/TransactionDetailsScreen.dart';
 import 'package:freeda_app/screens/edit_profile.dart';
+import 'package:freeda_app/screens/history.dart';
 import 'package:freeda_app/screens/mainScreen.dart';
 import 'package:freeda_app/screens/send_money.dart';
 
@@ -16,6 +20,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         // This is the theme of your application.
@@ -29,7 +34,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: SendMoney(),
+      home: History(),
     );
   }
 }

@@ -6,32 +6,19 @@ import 'package:freeda_app/widgets/customButton.dart';
 import 'package:freeda_app/widgets/transactionTile.dart';
 
 import '../models/Balances.dart';
+import '../models/PersonalBalance.dart';
+import '../widgets/AppDrawer.dart';
 import '../widgets/TopIcon2.dart';
+import '../widgets/userBalance.dart';
 
 class BalanceScreen extends StatelessWidget {
   const BalanceScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final personalBalance = <Balances>[
-      Balances(
-        imageUrl: 'assets/images/image11.png',
-        amount: '18,42',
-        currency: 'Euro Bal',
-      ),
-      Balances(
-        imageUrl: 'assets/images/image12.png',
-        amount: '121k',
-        currency: 'British Bal',
-      ),
-      Balances(
-        imageUrl: 'assets/images/image13.png',
-        amount: '352k',
-        currency: 'US Bal',
-      ),
-    ];
     return SafeArea(
       child: Scaffold(
+        drawer: App_Drawer(),
         body: Padding(
           padding: const EdgeInsets.all(20),
           child: SingleChildScrollView(
@@ -178,41 +165,4 @@ class BalanceScreen extends StatelessWidget {
       ),
     );
   }
-}
-
-Widget userBalance({
-  required String imageUrl,
-  required String amount,
-  required String currency,
-}) {
-  return Padding(
-    padding: const EdgeInsets.all(10),
-    child: CustomButton(
-      Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          Image.asset(imageUrl),
-          MyText(
-            title: amount,
-            size: 28,
-            color: Colors.black,
-            weight: FontWeight.w600,
-          ),
-          MyText(
-            title: currency,
-            size: 14,
-            color: Color(0xff7F8192),
-            weight: FontWeight.w600,
-          )
-        ],
-      ),
-      157,
-      138,
-      Colors.white,
-      10,
-      Color(0xff8A959E).withOpacity(0.1),
-      0,
-      15,
-    ),
-  );
 }

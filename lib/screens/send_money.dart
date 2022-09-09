@@ -4,6 +4,7 @@ import 'package:freeda_app/widgets/Topwidget.dart';
 import 'package:freeda_app/widgets/customButton.dart';
 
 import '../models/Sending.dart';
+import '../widgets/AppDrawer.dart';
 import '../widgets/Card.dart';
 
 class SendMoney extends StatelessWidget {
@@ -36,6 +37,7 @@ class SendMoney extends StatelessWidget {
     ];
     return SafeArea(
       child: Scaffold(
+        drawer: const App_Drawer(),
         body: Padding(
           padding: const EdgeInsets.all(20),
           child: Column(

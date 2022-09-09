@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:freeda_app/widgets/MyText.dart';
 import 'package:freeda_app/widgets/customButton.dart';
 import '../models/transactlist.dart';
+import '../widgets/AppDrawer.dart';
 import '../widgets/Topwidget.dart';
 import '../widgets/servicesWidget.dart';
 import '../widgets/transactionTile.dart';
@@ -13,6 +14,7 @@ class MainScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        drawer: const App_Drawer(),
         body: Padding(
           padding: const EdgeInsets.all(20),
           child: Column(

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:freeda_app/widgets/AppDrawer.dart';
 import 'package:freeda_app/widgets/MyText.dart';
 import 'package:freeda_app/widgets/TopIcon2.dart';
-
 import 'package:freeda_app/widgets/customButton.dart';
 
 class EditProfile extends StatelessWidget {
@@ -16,83 +15,87 @@ class EditProfile extends StatelessWidget {
     final _phoneController = TextEditingController();
     return SafeArea(
       child: Scaffold(
+        drawer: App_Drawer(),
         body: Padding(
           padding: const EdgeInsets.all(20),
-          child: Column(
-            children: [
-              TopIcon2(),
-              SizedBox(
-                height: 25,
-              ),
-              Align(
-                alignment: Alignment.topLeft,
-                child: MyText(
-                  title: 'Edit profile',
-                  size: 37,
-                  color: Colors.black,
-                  weight: FontWeight.w700,
+          child: SingleChildScrollView(
+            scrollDirection: Axis.vertical,
+            child: Column(
+              children: [
+                TopIcon2(),
+                SizedBox(
+                  height: 25,
                 ),
-              ),
-              SizedBox(
-                height: 5,
-              ),
-              Image.asset(
-                'assets/images/image.png',
-                height: 93,
-                width: 97,
-              ),
-              MyText(
-                title: 'Change Profile Picture',
-                size: 18,
-                color: Color(0xff151940),
-                weight: FontWeight.w600,
-              ),
-              SizedBox(
-                height: 30,
-              ),
-              Textforms(
-                label: 'Name',
-                controller: _nameController,
-                hint: 'Domhnall Gleeson',
-                keyboard: TextInputType.text,
-              ),
-              Textforms(
-                label: 'Location',
-                controller: _locationController,
-                hint: 'United States ',
-                keyboard: TextInputType.text,
-              ),
-              Textforms(
-                label: 'Address',
-                controller: _adressController,
-                hint: '123 Street/NYC',
-                keyboard: TextInputType.text,
-              ),
-              Textforms(
-                label: 'Phone Number',
-                controller: _phoneController,
-                hint: '+000 000 00000',
-                keyboard: TextInputType.phone,
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              CustomButton(
-                  Center(
-                    child: MyText(
-                        color: Colors.white,
-                        title: 'Save Changes',
-                        size: 18,
-                        weight: FontWeight.w700),
+                Align(
+                  alignment: Alignment.topLeft,
+                  child: MyText(
+                    title: 'Edit profile',
+                    size: 37,
+                    color: Colors.black,
+                    weight: FontWeight.w700,
                   ),
-                  56,
-                  332,
-                  Color(0xff5771F9),
-                  8,
-                  Colors.transparent,
-                  0,
-                  0)
-            ],
+                ),
+                SizedBox(
+                  height: 5,
+                ),
+                Image.asset(
+                  'assets/images/image.png',
+                  height: 93,
+                  width: 97,
+                ),
+                MyText(
+                  title: 'Change Profile Picture',
+                  size: 18,
+                  color: Color(0xff151940),
+                  weight: FontWeight.w600,
+                ),
+                SizedBox(
+                  height: 30,
+                ),
+                Textforms(
+                  label: 'Name',
+                  controller: _nameController,
+                  hint: 'Domhnall Gleeson',
+                  keyboard: TextInputType.text,
+                ),
+                Textforms(
+                  label: 'Location',
+                  controller: _locationController,
+                  hint: 'United States ',
+                  keyboard: TextInputType.text,
+                ),
+                Textforms(
+                  label: 'Address',
+                  controller: _adressController,
+                  hint: '123 Street/NYC',
+                  keyboard: TextInputType.text,
+                ),
+                Textforms(
+                  label: 'Phone Number',
+                  controller: _phoneController,
+                  hint: '+000 000 00000',
+                  keyboard: TextInputType.phone,
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                CustomButton(
+                    Center(
+                      child: MyText(
+                          color: Colors.white,
+                          title: 'Save Changes',
+                          size: 18,
+                          weight: FontWeight.w700),
+                    ),
+                    56,
+                    332,
+                    Color(0xff5771F9),
+                    8,
+                    Colors.transparent,
+                    0,
+                    0)
+              ],
+            ),
           ),
         ),
       ),
@@ -106,13 +109,13 @@ class Textforms extends StatelessWidget {
   TextEditingController controller;
   TextInputType keyboard;
 
-  Textforms(
-      {Key? key,
-      required this.label,
-      required this.hint,
-      required this.controller,
-      required this.keyboard})
-      : super(key: key);
+  Textforms({
+    Key? key,
+    required this.label,
+    required this.hint,
+    required this.controller,
+    required this.keyboard,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
