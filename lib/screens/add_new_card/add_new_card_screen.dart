@@ -1,24 +1,18 @@
 import 'package:flutter/material.dart';
-import '../../reusable_widget/constants.dart';
-import '../../reusable_widget/reusable_widgets.dart';
+import 'package:freeda_app/screens/add_new_card/add_new_card_components/add_new_card_components.dart';
+import 'package:freeda_app/reusable_widget/reusable_widgets.dart';
+import 'package:freeda_app/reusable_widget/constants.dart';
 import '../../screens/transferred_screen/transferred_screen_components/transferred_screen_components.dart';
-import 'add_new_card_components/add_new_card_components.dart';
 
-class AddNewCardScreen extends StatefulWidget {
+class AddNewCardScreen extends StatelessWidget {
   const AddNewCardScreen({Key? key}) : super(key: key);
 
-  @override
-  State<AddNewCardScreen> createState() => _AddNewCardScreenState();
-}
-
-class _AddNewCardScreenState extends State<AddNewCardScreen> {
-  bool SwitchIsActive = true;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         body: Padding(
-          padding: const EdgeInsets.only(left:45,top:58,right:40,),
+          padding: const EdgeInsets.fromLTRB(45,58,40,56.0),
           child: Column(
             children: [
               topRow(),
@@ -31,10 +25,7 @@ class _AddNewCardScreenState extends State<AddNewCardScreen> {
               customTextWidget(text: 'Enter the details to add a new card',
                   color: kTextColor,weight: FontWeight.w500,size: 18,),
                SizedBox(height: 48,),
-               buildCardForm(isToggled: SwitchIsActive, isClicked: (value) {
-                 setState(() {
-                 SwitchIsActive = value;
-               }); },),
+               buildCardForm(),
 
 
             ],

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:joint_project/screens/error_screens/error_screen_no_new_activity.dart';
+import 'package:freeda_app/screens/transferred_screen/transferred_screen.dart';
+import 'package:freeda_app/screens/add_new_card/add_new_card_screen.dart';
 
 
 void main() {
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: NoNewActivity(),
+      home: AddNewCardScreen(),
     );
   }
 }
