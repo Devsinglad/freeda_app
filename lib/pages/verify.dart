@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../widget/reuseablewidget.dart';
 
 class WelcomeScreen extends StatefulWidget {
@@ -62,9 +61,11 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                       color: Color(0xffFFFFFF),
                       shape: BoxShape.circle
                   ),
-                  child: logowidget('images/arrow.png'),
+                    child:Icon(
+                      Icons.arrow_forward,
+                      color: Color(0xFF314BCE),
+                    )),
                 ),
-              ),
               SizedBox(height: 17,),
             ],
           ),
