@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:freeda_app/reusable_widget/reusable_widgets.dart';
-import 'package:freeda_app/reusable_widget/constants.dart';
+import '../../../reusable_widget/constants.dart';
+import '../../../reusable_widget/reusable_widgets.dart';
 
 class transferred_account{
   final String image;

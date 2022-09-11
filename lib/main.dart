@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:freeda_app/screens/transferred_screen/transferred_screen.dart';
-import 'package:freeda_app/screens/add_new_card/add_new_card_screen.dart';
+import 'package:joint_project/screens/total_balance_graph.dart';
 
 
 void main() {
@@ -13,7 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: AddNewCardScreen(),
+      home: HomeScreen(),
     );
   }
 }
