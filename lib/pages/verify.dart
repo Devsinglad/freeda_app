@@ -1,17 +1,15 @@
 import 'package:flutter/material.dart';
+
 import '../widget/reuseablewidget.dart';
 
-
-
-class VerifyPage extends StatefulWidget {
-  const VerifyPage({Key? key}) : super(key: key);
+class WelcomeScreen extends StatefulWidget {
+  const WelcomeScreen({Key? key}) : super(key: key);
 
   @override
-  State<VerifyPage> createState() => _VerifyPageState();
+  State<WelcomeScreen> createState() => _WelcomeScreenState();
 }
 
-class _VerifyPageState extends State<VerifyPage> {
-
+class _WelcomeScreenState extends State<WelcomeScreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -74,4 +72,5 @@ class _VerifyPageState extends State<VerifyPage> {
       ),
     );
   }
-}
+  }
+

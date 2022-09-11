@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:freebankapp/pages/final_verifypage.dart';
+import 'package:freebankapp/screenss/splashscreen.dart';
+
+
+
+
 
 
 void main() {
@@ -16,7 +20,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: Final_verify(),
+      home: SplashScreen(),
     );
   }
 }

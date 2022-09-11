@@ -1,20 +1,28 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter/cupertino.dart';
 
 TextFormField passwordWidget(String text, bool isPasswordType, IconData? icon,
     TextEditingController controller,
     {required IconButton suffixIcon}) {
+  bool visible = false;
+
   return TextFormField(
     controller: controller,
-    obscureText: isPasswordType,
-    enableSuggestions: !isPasswordType,
-    autocorrect: isPasswordType,
-    cursorColor: Colors.black,
-    style: TextStyle(color: Colors.black.withOpacity(0.9)),
+    obscureText: visible,
     decoration: InputDecoration(
-      suffixIcon: Icon(
-        icon,
-        color: Colors.grey,
+      suffixIcon: IconButton(
+        onPressed: () {
+          setState(() {
+            visible=!visible;
+          });
+        },
+        icon: visible?Icon(
+          Icons.visibility,
+          color: Color(0xFF314BCE),
+        ):Icon(
+          Icons.visibility_off,
+          color: Color(0xFF314BCE),
+        ),
       ),
       border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
       hintText: text,
@@ -24,4 +32,7 @@ TextFormField passwordWidget(String text, bool isPasswordType, IconData? icon,
         ? TextInputType.visiblePassword
         : TextInputType.emailAddress,
   );
+}
+
+void setState(Null Function() param0) {
 }
