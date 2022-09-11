@@ -1,15 +1,14 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:freeda_app/screenss/welcomescreen.dart';
 
-import '../pages/verify.dart';
-
-class Onboarding1 extends StatefulWidget {
-  const Onboarding1({Key? key}) : super(key: key);
+class OnBoardingScreen extends StatefulWidget {
 
   @override
-  State<Onboarding1> createState() => _Onboarding1State();
+  State<StatefulWidget> createState() => _OnBoardingScreenState();
 }
 
-class _Onboarding1State extends State<Onboarding1> {
+class _OnBoardingScreenState extends State<OnBoardingScreen>{
   late PageController _pageController;
 
   int selectedIndex = 0;
@@ -95,7 +94,8 @@ class _Onboarding1State extends State<Onboarding1> {
                             curve: Curves.ease);
 
                         if(selectedIndex==2){
-                          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>WelcomeScreen()));
+                          Navigator.pushReplacement(context,
+                              MaterialPageRoute(builder: (context)=>Welcome()));
                         }
                       },
                       style: ElevatedButton.styleFrom(
@@ -130,15 +130,15 @@ class OnBoard{
 }
 final  List<OnBoard> demo_data =[
   OnBoard(
-      image: "images/Group 68.png",
+      image: "assets/images/Group 68.png",
       title: "Take hold of \n your finances",
       description: "Running your finances is easier with xyz" ),
   OnBoard(
-      image: "images/onboard2.png",
+      image: "assets/images/Group 69.png",
       title: "See where your  \n money is going",
       description: "Stay on top by efforteasily tracking your\n your subscription & bills" ),
   OnBoard(
-      image: "images/onboard3.png",
+      image: "assets/images/Group 70.png",
       title: "Reach your \n goals with ease",
       description: "Use the smart saving features to\nmanage your future goals and needs" ),
 ];

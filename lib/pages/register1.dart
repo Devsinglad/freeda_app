@@ -24,8 +24,7 @@ class _Register1State extends State<Register1> {
         body: SafeArea(
           child: SingleChildScrollView(
             child:
-            Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-              SizedBox(
+            Column(crossAxisAlignment: CrossAxisAlignment.start, children: [              SizedBox(
                 height: 91,
               ),
               Padding(
