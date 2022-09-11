@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:freebankapp/screenss/splashscreen.dart';
 
-
-
-
-
-
 void main() {
   runApp(MyApp());
 }
