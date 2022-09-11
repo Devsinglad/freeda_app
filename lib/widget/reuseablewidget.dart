@@ -1,11 +1,21 @@
 import 'package:country_calling_code_picker/country_code_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 Image logowidget (String imageName){
   return Image.asset(
     imageName,
   );
 }
+
+Text Txtnum (String text){
+  return  Text(text,style: TextStyle(
+      fontWeight: FontWeight.w500,
+      fontSize: 14,
+      fontFamily: 'inter',
+      color: Color(0xff151940)),);
+}
+
 TextFormField reusableTextFormField(
 String text,
     bool isPasswordType,
@@ -58,9 +68,6 @@ class PickerPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Select Country'),
-      ),
       body: Container(
         child: CountryPickerWidget(
           onSelected: (country) => Navigator.pop(context, country),
@@ -69,3 +76,39 @@ class PickerPage extends StatelessWidget {
     );
   }
 }
+
+class DashForm extends StatelessWidget {
+  const DashForm({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        SizedBox(
+        width:64,
+        height:68,
+        child: TextFormField(
+                style: TextStyle(
+                  fontSize: 44,
+                  fontWeight: FontWeight.w900,
+                ),
+                onChanged: (value){
+                  if(value.length==1){
+                  FocusScope.of(context).nextFocus();
+                }
+                  },
+                keyboardType: TextInputType.number,
+                textAlign: TextAlign.center,
+                inputFormatters: [
+                  LengthLimitingTextInputFormatter(1),
+                  FilteringTextInputFormatter.digitsOnly,
+                ],
+        ),
+        )],
+    );
+  }
+}
+
+
+

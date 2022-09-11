@@ -37,7 +37,10 @@ class Onboarding1 extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(left: 10.0,),
               child: Row(children: [
-                logowidget('images/page1.png'),
+                Padding(
+                  padding: const EdgeInsets.only(left: 20.0),
+                  child: Txtnum('1/3'),
+                ),
                 Spacer(),
                 Padding(
                   padding: const EdgeInsets.only(right: 34.0),
