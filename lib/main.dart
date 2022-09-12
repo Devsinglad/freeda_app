@@ -5,6 +5,8 @@ import 'package:freeda_app/pages/register2.dart';
 
 import 'package:freeda_app/screenss/splashscreen.dart';
 import 'package:device_preview/device_preview.dart';
+import 'package:joint_project/screens/total_balance_graph.dart';
+
 
 void main() {
   runApp(const MyApp());

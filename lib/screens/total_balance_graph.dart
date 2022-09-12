@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../reusable_widget/reusable_widgets.dart';
+import 'chart_data.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -9,7 +10,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-          child: Padding(padding:EdgeInsets.only(top: 58,right: 41),
+          child: Padding(padding:EdgeInsets.only(top: 58,right: 41,left: 41),
             child: Column(
               children:[
                 topRow(),
@@ -23,7 +24,11 @@ class HomeScreen extends StatelessWidget {
                   FontWeight.bold),
                  ),
                 SizedBox(height: 38,),
-                Image.asset('assets/images/Graph.png'),
+                // Image.asset('assets/images/Graph.png'),
+                Center(
+                  child: SizedBox(width: 332,height: 350,
+                      child: BarChartGraph()),
+                ),
                 SizedBox(height: 38,),
                 customContainer(height: 73, width: 332,
                     customizedDecoration: customDecoration2.copyWith(
@@ -69,5 +74,4 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
-
 
