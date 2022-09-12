@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 
 import '../pages/register1.dart';
 
-
 class Welcome extends StatelessWidget {
 
   @override
