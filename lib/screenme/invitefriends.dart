@@ -58,14 +58,14 @@ class _InviteFriendsState extends State<InviteFriends> {
               // importing images
 
               Center(
-                child: Image.asset("images/invite.png"),
+                child: Image.asset("assets/images/invite.png"),
               ),
 
               SizedBox(height: 50),
 
               Center(
                 child: Image.asset(
-                  "images/dollar.png",
+                  "assets/images/dollar.png",
                 ),
               ),
 

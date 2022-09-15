@@ -141,7 +141,7 @@ class _SelectRecipientsState extends State<SelectRecipients> {
                       color: Color(0xffE5E5E5),
                       child: Row(
                         children: [
-                          Image.asset('images/ab1.png'),
+                          Image.asset('assets/images/ab1.png'),
                           SizedBox(width: 14),
                           Column(
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -178,7 +178,7 @@ class _SelectRecipientsState extends State<SelectRecipients> {
                       color: Color(0xffE5E5E5),
                       child: Row(
                         children: [
-                          Image.asset('images/ab2.png'),
+                          Image.asset('assets/images/ab2.png'),
                           SizedBox(width: 14),
                           Column(
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -215,7 +215,7 @@ class _SelectRecipientsState extends State<SelectRecipients> {
                       color: Color(0xffE5E5E5),
                       child: Row(
                         children: [
-                          Image.asset('images/ab3.png'),
+                          Image.asset('assets/images/ab3.png'),
                           SizedBox(width: 14),
                           Column(
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -328,7 +328,7 @@ class _SelectRecipientsState extends State<SelectRecipients> {
                               ),
                               child: Row(
                                 children: [
-                                  Image.asset("images/pix2.png"),
+                                  Image.asset("assets/images/pix2.png"),
                                   SizedBox(width: 11),
                                   Column(
                                     mainAxisAlignment: MainAxisAlignment.center,
@@ -380,7 +380,7 @@ class _SelectRecipientsState extends State<SelectRecipients> {
                               ),
                               child: Row(
                                 children: [
-                                  Image.asset("images/pix1.png"),
+                                  Image.asset("assets/images/pix1.png"),
                                   SizedBox(width: 11),
                                   Column(
                                     mainAxisAlignment: MainAxisAlignment.center,

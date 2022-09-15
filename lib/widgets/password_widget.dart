@@ -1,12 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
-TextFormField passwordWidget(String text, bool isPasswordType, IconData? icon,
+TextFormField passwordWidget(
+    validator,
+    String text,
+    bool isPasswordType,
+    IconData? icon,
     TextEditingController controller,
-    {required IconButton suffixIcon}) {
+    {required IconButton suffixIcon}
+
+    ){
   bool visible = false;
 
   return TextFormField(
+    validator:validator,
     controller: controller,
     obscureText: visible,
     decoration: InputDecoration(

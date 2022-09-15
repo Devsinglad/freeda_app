@@ -7,10 +7,13 @@ class Services extends StatelessWidget {
   double width;
   IconData icon;
   String title;
+  // Function onTap;
+
 
   Services(
       {Key? key,
       required this.height,
+      // required this.onTap,
       required this.width,
       required this.icon,
       required this.title})

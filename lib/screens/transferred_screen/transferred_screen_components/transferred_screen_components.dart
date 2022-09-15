@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../../reusable_widget/constants.dart';
-import '../../../reusable_widget/reusable_widgets.dart';
+import '../../../widgets/constants.dart';
+import '../../../widgets/reusable_widgets.dart';
 
 class transferred_account{
   final String image;

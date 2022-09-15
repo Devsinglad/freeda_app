@@ -154,7 +154,7 @@ class _RecipientsState extends State<Recipients> {
                             ),
                             child: Row(
                               children: [
-                                Image.asset("images/pix3.png"),
+                                Image.asset("assets/images/pix3.png"),
                                 SizedBox(width: 11),
                                 Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
@@ -206,7 +206,7 @@ class _RecipientsState extends State<Recipients> {
                             ),
                             child: Row(
                               children: [
-                                Image.asset("images/pix4.png"),
+                                Image.asset("assets/images/pix4.png"),
                                 SizedBox(width: 11),
                                 Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
@@ -258,7 +258,7 @@ class _RecipientsState extends State<Recipients> {
                             ),
                             child: Row(
                               children: [
-                                Image.asset("images/pix5.png"),
+                                Image.asset("assets/images/pix5.png"),
                                 SizedBox(width: 11),
                                 Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
@@ -310,7 +310,7 @@ class _RecipientsState extends State<Recipients> {
                             ),
                             child: Row(
                               children: [
-                                Image.asset("images/pix2.png"),
+                                Image.asset("assets/images/pix2.png"),
                                 SizedBox(width: 11),
                                 Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
@@ -362,7 +362,7 @@ class _RecipientsState extends State<Recipients> {
                             ),
                             child: Row(
                               children: [
-                                Image.asset("images/pix1.png"),
+                                Image.asset("assets/images/pix1.png"),
                                 SizedBox(width: 11),
                                 Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
@@ -414,7 +414,7 @@ class _RecipientsState extends State<Recipients> {
                             ),
                             child: Row(
                               children: [
-                                Image.asset("images/pix6.png"),
+                                Image.asset("assets/images/pix6.png"),
                                 SizedBox(width: 11),
                                 Column(
                                   mainAxisAlignment: MainAxisAlignment.center,

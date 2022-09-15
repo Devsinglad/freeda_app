@@ -1,14 +1,22 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:freeda_app/pages/final_verifypage.dart';
-import 'package:freeda_app/pages/register1.dart';
-import 'package:freeda_app/pages/register2.dart';
+import 'package:freeda_app/screenme/invitefriends.dart';
+import 'package:freeda_app/screenme/recipients.dart';
+import 'package:freeda_app/screenme/selectrecipients.dart';
+import 'package:freeda_app/screenme/verified.dart';
+import 'package:freeda_app/screens/convert_screen/convert.dart';
+import 'package:freeda_app/screens/error_screens/error_screen_location_access.dart';
+import 'package:freeda_app/screens/mainScreen.dart';
+import 'package:freeda_app/screens/register2.dart';
 
-import 'package:freeda_app/screenss/splashscreen.dart';
+import 'package:freeda_app/screens/splashscreen.dart';
 import 'package:device_preview/device_preview.dart';
-import 'package:joint_project/screens/total_balance_graph.dart';
 
+import 'models/Balances.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 

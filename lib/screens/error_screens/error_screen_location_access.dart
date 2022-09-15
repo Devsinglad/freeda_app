@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:joint_project/reusable_widget/reusable_widgets.dart';
-
-import '../../reusable_widget/constants.dart';
+import 'package:freeda_app/widgets/reusable_widgets.dart';
+import '../../widgets/constants.dart';
 
 class ErrorScreen_Location_Access extends StatelessWidget {
   const ErrorScreen_Location_Access({Key? key}) : super(key: key);

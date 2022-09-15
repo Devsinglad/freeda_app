@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:freeda_app/screenme/signin.dart';
 
 import '../widgetssss/app_button2.dart';
 import '../widgetssss/my_text.dart';
@@ -14,7 +15,7 @@ class _VerifiedState extends State<Verified> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blueAccent,
+      backgroundColor: Color(0xff5771F9),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
@@ -23,7 +24,7 @@ class _VerifiedState extends State<Verified> {
 
               // import image
               Center(
-                child: Image.asset("images/verified.png"),
+                child: Image.asset("assets/images/verified.png"),
               ),
 
               SizedBox(height: 60),
@@ -47,14 +48,21 @@ class _VerifiedState extends State<Verified> {
 
               // creating customised button
 
-              AppButtonBig(
-                  textColor: Colors.black87,
-                  backgroundColor: Colors.white,
-                  borderColor: Colors.white,
-                  text: "Get Started",
-                  height: 56,
-                  width: 185,
-                  value: 8),
+              GestureDetector(
+                onTap: (){
+                  Navigator.push(
+                      context, MaterialPageRoute(builder:
+                      (context)=>SignIn()));
+                },
+                child: AppButtonBig(
+                    textColor: Colors.black87,
+                    backgroundColor: Colors.white,
+                    borderColor: Colors.white,
+                    text: "Get Started",
+                    height: 56,
+                    width: 185,
+                    value: 8),
+              ),
             ],
           ),
         ),

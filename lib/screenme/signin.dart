@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../screens/mainScreen.dart';
 import '../widgetssss/app_button2.dart';
 import '../widgetssss/my_text.dart';
 
@@ -251,15 +252,22 @@ class _SignInState extends State<SignIn> {
 
               // creating a customised button
 
-              AppButtonBig(
-                textColor: Colors.white,
-                backgroundColor: Color(0xff5771F9),
-                borderColor: Colors.grey,
-                text: "Log In",
-                height: 56,
-                width: 332,
-                value: 8,
-                size: 18,
+              GestureDetector(
+                onTap: (){
+                  Navigator.push(
+                      context, MaterialPageRoute(builder:
+                      (context)=>MainScreen()));
+                },
+                child: AppButtonBig(
+                  textColor: Colors.white,
+                  backgroundColor: Color(0xff5771F9),
+                  borderColor: Colors.grey,
+                  text: "Log In",
+                  height: 56,
+                  width: 332,
+                  value: 8,
+                  size: 18,
+                ),
               ),
 
               SizedBox(height: 80),

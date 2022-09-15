@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../reusable_widget/reusable_widgets.dart';
+import '../../../widgets/reusable_widgets.dart';
 
 class convert_plate extends StatelessWidget {
   final String image;

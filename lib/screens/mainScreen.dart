@@ -1,17 +1,47 @@
 import 'package:flutter/material.dart';
+import 'package:freeda_app/screens/send_money.dart';
 import 'package:freeda_app/widgets/MyText.dart';
 import 'package:freeda_app/widgets/customButton.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../models/transactlist.dart';
 import '../widgets/AppDrawer.dart';
 import '../widgets/Topwidget.dart';
 import '../widgets/servicesWidget.dart';
 import '../widgets/transactionTile.dart';
 
-class MainScreen extends StatelessWidget {
+class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
 
   @override
+  State<MainScreen> createState() => _MainScreenState();
+}
+
+class _MainScreenState extends State<MainScreen> {
+  String? fullname;
+  String? email;
+  String? password;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    localstorage();
+  }
+
+  Future<void> localstorage() async {
+    final localsdk = await SharedPreferences.getInstance();
+    fullname = await localsdk.getString('fullname');
+    email = await localsdk.getString('email');
+    password = await localsdk.getString('password');
+    print(fullname);
+    print(email);
+    print(password);
+   setState(() {
+
+  });
+  }
+  @override
   Widget build(BuildContext context) {
+
     return SafeArea(
       child: Scaffold(
         drawer: const App_Drawer(),
@@ -36,13 +66,13 @@ class MainScreen extends StatelessWidget {
                           children: [
                             MyText(
                               color: Colors.black,
-                              title: 'Domhnall Gleeson',
+                              title: fullname.toString(),
                               size: 26,
                               weight: FontWeight.bold,
                             ),
                             MyText(
                               color: Colors.black,
-                              title: 'account ending with 1545',
+                              title: email.toString(),
                               size: 16,
                               weight: FontWeight.w500,
                             ),

@@ -1,7 +1,7 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
-import '../reusable_widget/constants.dart';
+import '../widgets/constants.dart';
 
 List<BarChartGroupData>barChartGroupData = [
   BarChartGroupData(x: 1,barRods: [BarChartRodData(toY: 40,width: 8,

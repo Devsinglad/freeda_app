@@ -17,11 +17,14 @@ Text Txtnum (String text){
 }
 
 TextFormField reusableTextFormField(
-String text,
+    validator,
+    String text,
     bool isPasswordType,
-    TextEditingController controller
+    TextEditingController controller,
+     // FormFieldValidator validator,
     ){
   return TextFormField(
+    validator: validator,
     controller: controller,
   obscureText: isPasswordType,
     enableSuggestions: !isPasswordType,

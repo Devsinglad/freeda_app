@@ -1,7 +1,7 @@
 import'package:flutter/material.dart';
 import 'balances_components/balances_components.dart';
-import '../../reusable_widget/reusable_widgets.dart';
-import '../../reusable_widget/constants.dart';
+import '../../widgets/reusable_widgets.dart';
+import '../../widgets/constants.dart';
 
 
 class Balances extends StatelessWidget {

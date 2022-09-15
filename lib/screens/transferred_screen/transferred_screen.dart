@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 // import 'package:freeda_app/reusable_widget/reusable_widgets.dart';
 // import 'package:freeda_app/reusable_widget/constants.dart';
-import '../../reusable_widget/constants.dart';
-import '../../reusable_widget/reusable_widgets.dart';
+import '../../widgets/constants.dart';
+import '../../widgets/reusable_widgets.dart';
 import '../../screens/transferred_screen/transferred_screen_components/transferred_screen_components.dart';
 
 class Transferred extends StatelessWidget {
