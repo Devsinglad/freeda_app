@@ -25,7 +25,7 @@ class _Register1State extends State<Register1> {
   TextEditingController _confirmpasswordEditingController = TextEditingController();
 
   final _formkey = GlobalKey<FormState>();
-  final user = FirebaseAuth.instance.currentUser!;
+  final user = FirebaseAuth.instance.currentUser??"";
 
   // The validate functions below are used for the validation of each of the text form fields.
   String? validateEmail(String? formEmail) {
@@ -223,7 +223,6 @@ class _Register1State extends State<Register1> {
                          errorMessage,style: TextStyle(
                            color: Colors.red
                        ),),
-
                      ),
                      loading
                          ? CircularProgressIndicator(

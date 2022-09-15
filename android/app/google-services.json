@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "538448454271",
+    "project_id": "freedaapp-eefbb",
+    "storage_bucket": "freedaapp-eefbb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:538448454271:android:4e6635775c158c064f954a",
+        "android_client_info": {
+          "package_name": "com.example.freeda_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "538448454271-51hos86kcd8ouur383rj0s26n4vr1116.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9cTBvPJGq_UeOdpUVRNRNWrZaermXuxc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "538448454271-51hos86kcd8ouur383rj0s26n4vr1116.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

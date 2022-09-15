@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import '../screens/mainScreen.dart';
@@ -12,6 +13,7 @@ class SignIn extends StatefulWidget {
 }
 
 class _SignInState extends State<SignIn> {
+  String errorMessage = '';
   final _emailcontroller = TextEditingController();
   final _passwordcontroller = TextEditingController();
 
@@ -248,15 +250,42 @@ class _SignInState extends State<SignIn> {
                 ),
               ),
 
+              Center(
+                child: Text(
+                  errorMessage,style: TextStyle(
+                    color: Colors.red
+                ),),
+              ),
+
               SizedBox(height: 52),
 
               // creating a customised button
 
               GestureDetector(
-                onTap: (){
-                  Navigator.push(
-                      context, MaterialPageRoute(builder:
-                      (context)=>MainScreen()));
+                onTap: () async {
+
+
+                  try {
+                    await
+                    FirebaseAuth.instance
+                        .signInWithEmailAndPassword(
+                      email: _emailcontroller.text.trim(),
+                      password: _passwordcontroller.text,
+                    )
+                        .then((value) =>
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    MainScreen())));
+
+                    errorMessage = '';
+                  } on FirebaseAuthException catch (error) {
+                    errorMessage = error.message!;
+                  } catch (e, s) {
+                    print(e);
+                    print(s);
+                  }
                 },
                 child: AppButtonBig(
                   textColor: Colors.white,
