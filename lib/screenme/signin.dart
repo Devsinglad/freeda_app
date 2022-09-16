@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import '../screens/mainScreen.dart';
 import '../widgetssss/app_button2.dart';
 import '../widgetssss/my_text.dart';
+import 'forgetpassword.dart';
 
 class SignIn extends StatefulWidget {
   const SignIn({Key? key}) : super(key: key);
@@ -237,13 +238,18 @@ class _SignInState extends State<SignIn> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    Text(
-                      "Forget Password?",
-                      style: TextStyle(
-                        decoration: TextDecoration.underline,
-                        fontSize: 13,
-                        fontWeight: FontWeight.bold,
-                        color: Color(0xff5771F9),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(context, MaterialPageRoute(builder:(context)=>ForgetPassword()));
+              },
+                      child: Text(
+                        "Forget Password?",
+                        style: TextStyle(
+                          decoration: TextDecoration.underline,
+                          fontSize: 13,
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xff5771F9),
+                        ),
                       ),
                     ),
                   ],

@@ -1,4 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:freeda_app/screenme/signin.dart';
 import '../widgetssss/app_button.dart';
 import '../widgetssss/app_button2.dart';
 import '../widgetssss/my_text.dart';
@@ -131,15 +133,21 @@ class _ForgetPasswordState extends State<ForgetPassword> {
 
               // creating a custom button
 
-              AppButtonBig(
-                textColor: Colors.white,
-                backgroundColor: Color(0xff5771F9),
-                borderColor: Colors.grey,
-                text: "Send",
-                height: 56,
-                width: 332,
-                value: 8,
-                size: 18,
+              GestureDetector(
+                onTap: () async {
+                  FirebaseAuth.instance.sendPasswordResetEmail(email: _emailcontroller.text);
+                  Navigator.pop(context,MaterialPageRoute(builder:(context)=>SignIn()));
+                },
+                child: AppButtonBig(
+                  textColor: Colors.white,
+                  backgroundColor: Color(0xff5771F9),
+                  borderColor: Colors.grey,
+                  text: "Send",
+                  height: 56,
+                  width: 332,
+                  value: 8,
+                  size: 18,
+                ),
               ),
             ],
           ),

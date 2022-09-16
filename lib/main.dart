@@ -1,12 +1,15 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:freeda_app/screenme/forgetpassword.dart';
 import 'package:freeda_app/screenme/invitefriends.dart';
 import 'package:freeda_app/screenme/recipients.dart';
 import 'package:freeda_app/screenme/selectrecipients.dart';
+import 'package:freeda_app/screenme/signin.dart';
 import 'package:freeda_app/screenme/verified.dart';
 import 'package:freeda_app/screens/convert_screen/convert.dart';
 import 'package:freeda_app/screens/error_screens/error_screen_location_access.dart';
 import 'package:freeda_app/screens/mainScreen.dart';
+import 'package:freeda_app/screens/register1.dart';
 import 'package:freeda_app/screens/register2.dart';
 
 import 'package:freeda_app/screens/splashscreen.dart';
@@ -31,7 +34,7 @@ class MyApp extends StatelessWidget {
       useInheritedMediaQuery: true,
       locale: DevicePreview.locale(context),
       builder: DevicePreview.appBuilder,
-      home: SplashScreen(),
+      home:SignIn(),
     );
   }
 }
