@@ -18,9 +18,9 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   Country? _selectedCountry;
   TextEditingController countrynameController= TextEditingController();
-  TextEditingController countryname1Controller= TextEditingController();
+  TextEditingController _countryname1Controller= TextEditingController();
   String? code;
-  String dailCodeDigits= "+000";
+  String dailCodeDigits= "+00";
   @override
   void initState() {
     initCountry();
@@ -143,22 +143,33 @@ class _MyHomePageState extends State<MyHomePage> {
                       fontSize: 16,
                       fontFamily: 'inter'),),
                   SizedBox(height: 15),
-                  TextFormField(
-                    keyboardType: TextInputType.number,
-                    textInputAction: TextInputAction.done,
-                    controller: countryname1Controller,
-                    maxLines: 1,
-                    decoration: InputDecoration(
-                      prefix:  Text(code.toString(),style: TextStyle(color: Colors.black),),
-                      border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
-                            ),
+                  Container(
+                    child: TextFormField(
+                      keyboardType: TextInputType.number,
+                      textInputAction: TextInputAction.done,
+                      controller: _countryname1Controller,
+                      maxLines: 1,
+                      maxLength: 12,
+                      decoration: InputDecoration(
+                        prefix:  Padding(
+                          padding: const EdgeInsets.all(4),
+                          child: Text(
+                            code.toString(),
+                            style: TextStyle(color: Colors.black),),
+                        ),
+                        border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+                              ),
+                    ),
                   ),
                   SizedBox(height: 15),
                   Padding(
                     padding: const EdgeInsets.only(left: 15.0, right: 15),
                     child: signInsignUpButton(context, true, () {
                       Navigator.push(context, MaterialPageRoute(builder: (context)=>
-                          VerifyCode()));
+                          VerifyCode(
+                            phone: _countryname1Controller.text,
+                            codeDigits:code.toString(),
+                          )));
                     }),
                   ),
                   SizedBox(height: 24),
@@ -275,7 +286,4 @@ class _MyHomePageState extends State<MyHomePage> {
       });
     }
   }
-
-
 }
-

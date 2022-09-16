@@ -39,6 +39,7 @@ dependencies:
   toast: ^0.3.0
   cloud_firestore: ^3.4.7
   number_paginator: ^0.2.0
+  pinput: ^2.2.12
   country_pickers: ^2.0.0
   fl_country_code_picker: ^0.0.1
   country_calling_code_picker: ^2.0.1
