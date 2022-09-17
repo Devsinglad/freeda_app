@@ -20,25 +20,24 @@ class _MainScreenState extends State<MainScreen> {
   String? fullname;
   String? email;
   String? password;
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    localstorage();
-  }
-
-  Future<void> localstorage() async {
-    final localsdk = await SharedPreferences.getInstance();
-    fullname = await localsdk.getString('fullname');
-    email = await localsdk.getString('email');
-    password = await localsdk.getString('password');
-    print(fullname);
-    print(email);
-    print(password);
-   setState(() {
-
-  });
-  }
+  // @override
+  // void initState() {
+  //   // TODO: implement initState
+  //   super.initState();
+  //   localstorage();
+  // }
+  //
+  // Future<void> localstorage() async {
+  //   final localsdk = await SharedPreferences.getInstance();
+  //   fullname = await localsdk.getString('fullname');
+  //   email = await localsdk.getString('email');
+  //   password = await localsdk.getString('password');
+  //   print(fullname);
+  //   print(email);
+  //   print(password);
+  //  setState(() {
+  // });
+  // }
   @override
   Widget build(BuildContext context) {
 
@@ -66,7 +65,7 @@ class _MainScreenState extends State<MainScreen> {
                           children: [
                             MyText(
                               color: Colors.black,
-                              title: fullname.toString(),
+                              title: "Precious Adeleye",
                               size: 26,
                               weight: FontWeight.bold,
                             ),

@@ -70,6 +70,7 @@ class _Register1State extends State<Register1> {
     return _collectionRef.doc().set({
       'firstname':_fullnameEditingController.text,
       'email':_emailTextController.text,
+      'balance':"3000",
     }).then((value) => print('user data added')).
     catchError((error)=>print("something is wrong")) ;
   }

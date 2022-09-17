@@ -8,7 +8,6 @@ import 'package:pin_code_fields/pin_code_fields.dart';
 
 
 class VerifyCode extends StatefulWidget {
-
   final String phone;
   final String codeDigits;
 
