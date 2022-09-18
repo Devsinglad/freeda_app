@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import '../widgetssss/app_button.dart';
-import '../widgetssss/my_text.dart';
-import '../widgetssss/text_form.dart';
+import '../widgets/app_button.dart';
+import '../widgets/modifyappbutton.dart';
+import '../widgets/my_text.dart';
 
-class VerifyCode extends StatefulWidget {
-  const VerifyCode({Key? key}) : super(key: key);
+class VerifyCodeFill extends StatefulWidget {
+  const VerifyCodeFill({Key? key}) : super(key: key);
 
   @override
-  State<VerifyCode> createState() => _VerifyCodeState();
+  State<VerifyCodeFill> createState() => _VerifyCodeFillState();
 }
 
-class _VerifyCodeState extends State<VerifyCode> {
+class _VerifyCodeFillState extends State<VerifyCodeFill> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -103,10 +103,30 @@ class _VerifyCodeState extends State<VerifyCode> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    TextForms(height: 60, width: 40),
-                    TextForms(height: 60, width: 40),
-                    TextForms(height: 60, width: 40),
-                    TextForms(height: 60, width: 40),
+                    AppButtonSmall(
+                        textColor: Colors.white,
+                        backgroundColor: Color(0xff314bce),
+                        borderColor: Colors.white,
+                        text: '8',
+                        size: 70),
+                    AppButtonSmall(
+                        textColor: Colors.white,
+                        backgroundColor: Color(0xff5771F9),
+                        borderColor: Colors.white,
+                        text: '5',
+                        size: 70),
+                    AppButtonSmall(
+                        textColor: Colors.black87,
+                        backgroundColor: Color(0xfff5f6fa),
+                        borderColor: Colors.white,
+                        text: '2',
+                        size: 70),
+                    AppButtonSmall(
+                        textColor: Colors.black,
+                        backgroundColor: Color(0xffF5F6FA),
+                        borderColor: Colors.white,
+                        text: '3',
+                        size: 70),
                   ],
                 ),
               ),

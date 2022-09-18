@@ -12,9 +12,10 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   @override
-  initState(){
+  initState() {
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -23,42 +24,46 @@ class _SplashScreenState extends State<SplashScreen> {
         body: Column(
           children: <Widget>[
             SizedBox(height: 216.81),
-           Center(child: logowidget('assets/images/Logo.png')),
+            Center(child: logowidget('assets/images/Logo.png')),
             SizedBox(height: 24),
-            Text('Wallet',
+            Text(
+              'Wallet',
               style: TextStyle(
-                fontWeight: FontWeight.w600,
-                fontSize: 65,
-                color: Colors.white
-              ),
+                  fontWeight: FontWeight.w600,
+                  fontSize: 65,
+                  color: Colors.white),
             ),
             Center(
-              child: Text('Money Transfer, Wallet &\nFinance UI Kit',
+              child: Text(
+                'Money Transfer, Wallet &\nFinance UI Kit',
                 style: TextStyle(
                     fontWeight: FontWeight.w400,
                     fontSize: 18,
-                    color: Colors.white
-                ),
+                    color: Colors.white),
               ),
             ),
             SizedBox(height: 97),
             GestureDetector(
-              onTap: (){
+              onTap: () {
                 Navigator.pushReplacement(
-                    context, MaterialPageRoute(builder: (context) => OnBoardingScreen()));
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => OnBoardingScreen()));
               },
-              child: Container(height: 56,
+              child: Container(
+                height: 56,
                 width: 332,
                 color: Colors.white,
-
                 child: Center(
-                  child: Text('Get Started Now',
+                  child: Text(
+                    'Get Started Now',
                     style: TextStyle(
-                      fontWeight: FontWeight.w700,
-                      fontSize: 18,
-                      color: Color(0xff5771F9)),
+                        fontWeight: FontWeight.w700,
+                        fontSize: 18,
+                        color: Color(0xff5771F9)),
+                  ),
+                ),
               ),
-                ),),
             )
           ],
         ),

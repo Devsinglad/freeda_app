@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:freeda_app/screenme/signin.dart';
+import 'package:freeda_app/screen_precious/signin.dart';
 
-import '../widgetssss/app_button2.dart';
-import '../widgetssss/my_text.dart';
+import '../widgets/app_button2.dart';
+import '../widgets/my_text.dart';
 
 class Verified extends StatefulWidget {
   const Verified({Key? key}) : super(key: key);
@@ -49,10 +49,9 @@ class _VerifiedState extends State<Verified> {
               // creating customised button
 
               GestureDetector(
-                onTap: (){
-                  Navigator.push(
-                      context, MaterialPageRoute(builder:
-                      (context)=>SignIn()));
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => SignIn()));
                 },
                 child: AppButtonBig(
                     textColor: Colors.black87,

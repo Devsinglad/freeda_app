@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import '../widgetssss/app_button.dart';
-import '../widgetssss/modifyappbutton.dart';
-import '../widgetssss/my_text.dart';
+import '../widgets/app_button.dart';
+import '../widgets/my_text.dart';
+import '../widgets/text_form.dart';
 
-class VerifyCodeFill extends StatefulWidget {
-  const VerifyCodeFill({Key? key}) : super(key: key);
+class VerifyCode extends StatefulWidget {
+  const VerifyCode({Key? key}) : super(key: key);
 
   @override
-  State<VerifyCodeFill> createState() => _VerifyCodeFillState();
+  State<VerifyCode> createState() => _VerifyCodeState();
 }
 
-class _VerifyCodeFillState extends State<VerifyCodeFill> {
+class _VerifyCodeState extends State<VerifyCode> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -103,30 +103,10 @@ class _VerifyCodeFillState extends State<VerifyCodeFill> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    AppButtonSmall(
-                        textColor: Colors.white,
-                        backgroundColor: Color(0xff314bce),
-                        borderColor: Colors.white,
-                        text: '8',
-                        size: 70),
-                    AppButtonSmall(
-                        textColor: Colors.white,
-                        backgroundColor: Color(0xff5771F9),
-                        borderColor: Colors.white,
-                        text: '5',
-                        size: 70),
-                    AppButtonSmall(
-                        textColor: Colors.black87,
-                        backgroundColor: Color(0xfff5f6fa),
-                        borderColor: Colors.white,
-                        text: '2',
-                        size: 70),
-                    AppButtonSmall(
-                        textColor: Colors.black,
-                        backgroundColor: Color(0xffF5F6FA),
-                        borderColor: Colors.white,
-                        text: '3',
-                        size: 70),
+                    TextForms(height: 60, width: 40),
+                    TextForms(height: 60, width: 40),
+                    TextForms(height: 60, width: 40),
+                    TextForms(height: 60, width: 40),
                   ],
                 ),
               ),

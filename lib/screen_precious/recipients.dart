@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import '../widgetssss/app_button.dart';
-import '../widgetssss/app_button2.dart';
-import '../widgetssss/my_text.dart';
+import '../widgets/app_button.dart';
+import '../widgets/app_button2.dart';
+import '../widgets/my_text.dart';
 
 class Recipients extends StatefulWidget {
   const Recipients({Key? key}) : super(key: key);

@@ -1,9 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:freeda_app/screenme/signin.dart';
-import '../widgetssss/app_button.dart';
-import '../widgetssss/app_button2.dart';
-import '../widgetssss/my_text.dart';
+import 'package:freeda_app/screen_precious/signin.dart';
+import '../widgets/app_button.dart';
+import '../widgets/app_button2.dart';
+import '../widgets/my_text.dart';
 
 class ForgetPassword extends StatefulWidget {
   const ForgetPassword({Key? key}) : super(key: key);
@@ -135,8 +135,10 @@ class _ForgetPasswordState extends State<ForgetPassword> {
 
               GestureDetector(
                 onTap: () async {
-                  FirebaseAuth.instance.sendPasswordResetEmail(email: _emailcontroller.text);
-                  Navigator.pop(context,MaterialPageRoute(builder:(context)=>SignIn()));
+                  FirebaseAuth.instance
+                      .sendPasswordResetEmail(email: _emailcontroller.text);
+                  Navigator.pop(context,
+                      MaterialPageRoute(builder: (context) => SignIn()));
                 },
                 child: AppButtonBig(
                   textColor: Colors.white,

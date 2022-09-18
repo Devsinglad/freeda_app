@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:line_icons/line_icon.dart';
 import 'package:line_icons/line_icons.dart';
 
-import '../widgetssss/app_button.dart';
-import '../widgetssss/app_button2.dart';
-import '../widgetssss/my_text.dart';
+import '../widgets/app_button.dart';
+import '../widgets/app_button2.dart';
+import '../widgets/my_text.dart';
 
 class PaymentSuccessful extends StatefulWidget {
   const PaymentSuccessful({Key? key}) : super(key: key);

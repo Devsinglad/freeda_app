@@ -1,10 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:freeda_app/screens/register1.dart';
-
+import 'package:freeda_app/screen_precious/register1.dart';
 
 class Welcome extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -13,33 +11,34 @@ class Welcome extends StatelessWidget {
         child: Column(
           children: [
             SizedBox(
-              height:179,
+              height: 179,
             ),
             Padding(
-              padding: const EdgeInsets.only(right: 30,left: 34),
-              child: Image.asset("assets/images/Frame 2.png",),
+              padding: const EdgeInsets.only(right: 30, left: 34),
+              child: Image.asset(
+                "assets/images/Frame 2.png",
+              ),
             ),
             Row(
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(left: 41,top: 34),
-                  child: Text("Welcome",
+                  padding: const EdgeInsets.only(left: 41, top: 34),
+                  child: Text(
+                    "Welcome",
                     textAlign: TextAlign.left,
-                    style:  TextStyle(
-                        fontSize: 44,
-                        color: Colors.white
-                    ),),
+                    style: TextStyle(fontSize: 44, color: Colors.white),
+                  ),
                 ),
               ],
             ),
             Row(
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(left: 41,top: 23),
-                  child: Text("Stay on top effortlessly tracking your\n subscription & bills",
-                    style: TextStyle(
-                        color: Colors.white
-                    ),),
+                  padding: const EdgeInsets.only(left: 41, top: 23),
+                  child: Text(
+                    "Stay on top effortlessly tracking your\n subscription & bills",
+                    style: TextStyle(color: Colors.white),
+                  ),
                 ),
               ],
             ),
@@ -50,15 +49,13 @@ class Welcome extends StatelessWidget {
                 height: 94,
                 width: 94,
                 child: ElevatedButton(
-                    onPressed: (){
-                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>Register1()));
-                },
+                    onPressed: () {
+                      Navigator.pushReplacement(context,
+                          MaterialPageRoute(builder: (context) => Register1()));
+                    },
                     style: ElevatedButton.styleFrom(
-                        shape: CircleBorder(),
-                        primary: Colors.white
-
-                    ),
-                    child:Icon(
+                        shape: CircleBorder(), primary: Colors.white),
+                    child: Icon(
                       Icons.arrow_forward,
                       color: Color(0xFF314BCE),
                     )),

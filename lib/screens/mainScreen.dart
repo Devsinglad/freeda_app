@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:freeda_app/screens/send_money.dart';
 import 'package:freeda_app/widgets/MyText.dart';
@@ -20,13 +22,15 @@ class _MainScreenState extends State<MainScreen> {
   String? fullname;
   String? email;
   String? password;
-  // @override
-  // void initState() {
-  //   // TODO: implement initState
-  //   super.initState();
-  //   localstorage();
-  // }
-  //
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    //localstorage();
+    firebaseUserInfo();
+  }
+
   // Future<void> localstorage() async {
   //   final localsdk = await SharedPreferences.getInstance();
   //   fullname = await localsdk.getString('fullname');
@@ -35,12 +39,19 @@ class _MainScreenState extends State<MainScreen> {
   //   print(fullname);
   //   print(email);
   //   print(password);
-  //  setState(() {
-  // });
+  //   setState(() {});
   // }
+
+  Future<void> firebaseUserInfo() async {
+    final firebaseUser =
+        await FirebaseFirestore.instance.collection('users').get();
+    fullname = await FirebaseAuth.instance.currentUser?.displayName;
+    setState(() {});
+    print(fullname);
+  }
+
   @override
   Widget build(BuildContext context) {
-
     return SafeArea(
       child: Scaffold(
         drawer: const App_Drawer(),
@@ -65,7 +76,7 @@ class _MainScreenState extends State<MainScreen> {
                           children: [
                             MyText(
                               color: Colors.black,
-                              title: "Precious Adeleye",
+                              title: fullname.toString(),
                               size: 26,
                               weight: FontWeight.bold,
                             ),
