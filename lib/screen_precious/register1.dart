@@ -71,11 +71,11 @@ class _Register1State extends State<Register1> {
     CollectionReference _collectionRef =
         FirebaseFirestore.instance.collection('users');
     return _collectionRef
-        .doc()
+        .doc(_emailTextController.text)
         .set({
           'firstname': _fullNameEditingController.text,
           'email': _emailTextController.text,
-          'balance': "3000",
+          'balance': "\$3000",
         })
         .then(
           (value) => print('user data added'),
@@ -268,25 +268,24 @@ class _Register1State extends State<Register1> {
                                             loading = true;
                                           });
                                           try {
-                                            sendName();
                                             await FirebaseAuth.instance
                                                 .createUserWithEmailAndPassword(
-                                                  email: _emailTextController
-                                                      .text
-                                                      .trim(),
-                                                  password:
-                                                      _passwordEditingController
-                                                          .text,
-                                                )
-                                                .then(
-                                                  (value) => Navigator.push(
-                                                    context,
-                                                    MaterialPageRoute(
-                                                      builder: (context) =>
-                                                          Register2(),
-                                                    ),
-                                                  ),
-                                                );
+                                              email: _emailTextController.text
+                                                  .trim(),
+                                              password:
+                                                  _passwordEditingController
+                                                      .text,
+                                            )
+                                                .then((value) {
+                                              sendName();
+                                              Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      Register2(),
+                                                ),
+                                              );
+                                            });
 
                                             errorMessage = '';
                                           } on FirebaseAuthException catch (error) {

@@ -20,8 +20,10 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   String? fullname;
+  String? initAmount;
   String? email;
   String? password;
+  String uc = '12344555';
 
   @override
   void initState() {
@@ -43,11 +45,19 @@ class _MainScreenState extends State<MainScreen> {
   // }
 
   Future<void> firebaseUserInfo() async {
-    final firebaseUser =
-        await FirebaseFirestore.instance.collection('users').get();
-    fullname = await FirebaseAuth.instance.currentUser?.displayName;
-    setState(() {});
-    print(fullname);
+    final firebaseUser = FirebaseAuth.instance.currentUser?.email;
+
+    var name = await FirebaseFirestore.instance
+        .collection("users")
+        .doc(firebaseUser)
+        .get()
+        .then((value) {
+      fullname = value['firstname'];
+      initAmount = value['balance'];
+      email = value['email'];
+      setState(() {});
+      print(value.data());
+    });
   }
 
   @override
@@ -124,7 +134,7 @@ class _MainScreenState extends State<MainScreen> {
                     width: 53,
                     height: 53,
                     icon: Icons.swap_horiz_outlined,
-                    title: 'Transfer',
+                    title: uc.substring(uc.length - 4).toString(), //'Transfer',
                   ),
                   Services(
                     width: 53,
@@ -174,7 +184,7 @@ class _MainScreenState extends State<MainScreen> {
                                 height: 5,
                               ),
                               MyText(
-                                title: '\$255,500',
+                                title: initAmount.toString(),
                                 size: 14,
                                 color: Colors.white,
                                 weight: FontWeight.w500,
