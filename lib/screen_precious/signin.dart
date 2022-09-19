@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:freeda_app/screen_precious/register1.dart';
 
-import '../screens/mainScreen.dart';
+import '../screens/Row3/mainScreen.dart';
 import '../widgets/app_button2.dart';
 import '../widgets/my_text.dart';
 import 'forgetpassword.dart';

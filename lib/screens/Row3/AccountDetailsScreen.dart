@@ -3,8 +3,8 @@ import 'package:freeda_app/widgets/MyText.dart';
 import 'package:freeda_app/widgets/TopIcon2.dart';
 import 'package:freeda_app/widgets/customButton.dart';
 
-import '../models/Recent_transfers.dart';
-import '../widgets/AccountDetailWidget.dart';
+import '../../models/Recent_transfers.dart';
+import '../../widgets/AccountDetailWidget.dart';
 
 class AccountDetailsScreen extends StatelessWidget {
   const AccountDetailsScreen({Key? key}) : super(key: key);

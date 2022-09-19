@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../../widgets/constants.dart';
-import '../../../widgets/reusable_widgets.dart';
+import '../../../../widgets/constants.dart';
+import '../../../../widgets/reusable_widgets.dart';
+
 // import 'package:freeda_app/reusable_widget/reusable_widgets.dart';
 // import 'package:freeda_app/reusable_widget/constants.dart';
 
@@ -15,12 +16,16 @@ class buildCardForm extends StatelessWidget {
     return Form(
       child: Column(
         children: [
-          customTextWidget(text: 'Card Number',
-            color: kTextColor,weight: FontWeight.w600,size: 12,),
-          SizedBox(height: 6,),
-          TextFormField(
-
-          )
+          customTextWidget(
+            text: 'Card Number',
+            color: kTextColor,
+            weight: FontWeight.w600,
+            size: 12,
+          ),
+          SizedBox(
+            height: 6,
+          ),
+          TextFormField()
         ],
       ),
     );

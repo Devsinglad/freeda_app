@@ -1,15 +1,15 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:freeda_app/screens/send_money.dart';
+import 'package:freeda_app/screens/Row3/send_money.dart';
 import 'package:freeda_app/widgets/MyText.dart';
 import 'package:freeda_app/widgets/customButton.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import '../models/transactlist.dart';
-import '../widgets/AppDrawer.dart';
-import '../widgets/Topwidget.dart';
-import '../widgets/servicesWidget.dart';
-import '../widgets/transactionTile.dart';
+import '../../models/transactlist.dart';
+import '../../widgets/AppDrawer.dart';
+import '../../widgets/Topwidget.dart';
+import '../../widgets/servicesWidget.dart';
+import '../../widgets/transactionTile.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);

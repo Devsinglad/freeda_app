@@ -5,7 +5,7 @@ import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:freeda_app/screen_precious/verified.dart';
-import 'package:freeda_app/screens/Identity_Verification.dart';
+import 'package:freeda_app/screens/Row3/Identity_Verification.dart';
 import '../screen_precious/signin.dart';
 import 'verify.dart';
 import '../widgets/reuseablewidget.dart';

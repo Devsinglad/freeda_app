@@ -3,9 +3,9 @@ import 'package:freeda_app/widgets/MyText.dart';
 import 'package:freeda_app/widgets/Topwidget.dart';
 import 'package:freeda_app/widgets/customButton.dart';
 
-import '../models/Sending.dart';
-import '../widgets/AppDrawer.dart';
-import '../widgets/Card.dart';
+import '../../models/Sending.dart';
+import '../../widgets/AppDrawer.dart';
+import '../../widgets/Card.dart';
 
 class SendMoney extends StatelessWidget {
   const SendMoney({Key? key}) : super(key: key);

@@ -8,7 +8,7 @@ import 'package:freeda_app/screen_precious/signin.dart';
 import 'package:freeda_app/screen_precious/verified.dart';
 import 'package:freeda_app/screens/convert_screen/convert.dart';
 import 'package:freeda_app/screens/error_screens/error_screen_location_access.dart';
-import 'package:freeda_app/screens/mainScreen.dart';
+import 'package:freeda_app/screens/Row3/mainScreen.dart';
 import 'package:freeda_app/screen_precious/register1.dart';
 import 'package:freeda_app/screens/register2.dart';
 

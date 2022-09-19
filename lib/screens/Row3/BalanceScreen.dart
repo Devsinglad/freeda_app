@@ -5,11 +5,11 @@ import 'package:freeda_app/widgets/MyText.dart';
 import 'package:freeda_app/widgets/customButton.dart';
 import 'package:freeda_app/widgets/transactionTile.dart';
 
-import '../models/Balances.dart';
-import '../models/PersonalBalance.dart';
-import '../widgets/AppDrawer.dart';
-import '../widgets/TopIcon2.dart';
-import '../widgets/userBalance.dart';
+import '../../models/Balances.dart';
+import '../../models/PersonalBalance.dart';
+import '../../widgets/AppDrawer.dart';
+import '../../widgets/TopIcon2.dart';
+import '../../widgets/userBalance.dart';
 
 class BalanceScreen extends StatelessWidget {
   const BalanceScreen({Key? key}) : super(key: key);

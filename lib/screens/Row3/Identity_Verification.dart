@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:freeda_app/widgets/MyText.dart';
 import 'package:freeda_app/widgets/customButton.dart';
 
-import '../widgets/AppDrawer.dart';
-import '../widgets/Topwidget.dart';
+import '../../widgets/AppDrawer.dart';
+import '../../widgets/Topwidget.dart';
 
 class Identity_Verification extends StatelessWidget {
   const Identity_Verification({Key? key}) : super(key: key);
