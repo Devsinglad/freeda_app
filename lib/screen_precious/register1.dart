@@ -18,6 +18,7 @@ class _Register1State extends State<Register1> {
   bool _value = false;
   bool loading = false;
   bool isLoading = false;
+  bool toggle = true;
   String errorMessage = '';
   final TextEditingController _fullNameEditingController =
       TextEditingController();
@@ -165,6 +166,7 @@ class _Register1State extends State<Register1> {
                               ),
                             ],
                           ),
+                          SizedBox(height: 20,),
                           Text(
                             'or',
                             style: TextStyle(
@@ -185,38 +187,84 @@ class _Register1State extends State<Register1> {
                                   'Full name ',
                                   false,
                                   _fullNameEditingController,
+
                                 ),
                                 SizedBox(
                                   height: 12,
                                 ),
+                                // reusableTextFormField(validator, text, isPasswordType, passwordIcon, false, controller)
                                 reusableTextFormField(
                                     validateEmail,
                                     'Email Address',
                                     false,
                                     _emailTextController),
                                 SizedBox(height: 12),
-                                passwordWidget(
-                                  validatePassword,
-                                  'Password',
-                                  true,
-                                  Icons.visibility,
-                                  _passwordEditingController,
-                                  suffixIcon: IconButton(
-                                    icon: Icon(Icons.visibility),
-                                    onPressed: () {},
-                                  ),
+                                // passwordWidget(
+                                //   validatePassword,
+                                //   'Password',
+                                //   true,
+                                //   Icons.visibility,
+                                //   _passwordEditingController,
+                                //   suffixIcon: IconButton(
+                                //     icon: Icon(Icons.visibility),
+                                //    onPressed: () {
+                                //
+                                //     },
+                                //   ),
+                                // ),
+                                kTextFormField(hint: "password",
+                                  textEditingController: _passwordEditingController,
+                                  keyboardType: TextInputType.visiblePassword,
+                                  obscureText: toggle,
+                                  icon: Icons.lock,
+                                  passwordIcon:  GestureDetector(
+                                      onTap: (){
+                                        if(toggle==true){
+                                          setState(() {
+                                            toggle=false;
+                                          });
+                                        } else{
+                                          setState(() {
+                                            toggle =true;
+                                          });
+                                        }
+                                      },
+                                      child: toggle== true ?
+                                      Icon(Icons.visibility_off_outlined,
+                                        color: Color(0xff5771F9),
+                                      ) :
+                                      Icon(Icons.visibility,
+                                        color: Color(0xff5771F9),
+                                      ) ),
+                                  validator: validatePassword,
+                                  width: double.infinity, isPasswordType: true,
                                 ),
+
                                 SizedBox(height: 12),
-                                passwordWidget(
-                                  validateConfirmPassword,
-                                  'Confirm Password',
-                                  true,
-                                  Icons.visibility,
-                                  _confirmPasswordEditingController,
-                                  suffixIcon: IconButton(
-                                    icon: Icon(Icons.visibility),
-                                    onPressed: () {},
-                                  ),
+                                kTextFormField(hint: "password",
+                                  textEditingController: _confirmPasswordEditingController,
+                                  keyboardType: TextInputType.visiblePassword,
+                                  obscureText: toggle,
+                                  icon: Icons.lock,
+                                  passwordIcon:  GestureDetector(
+                                      onTap: (){
+                                        if(toggle==true){
+                                          setState(() {
+                                            toggle=false;
+                                          });
+                                        } else{
+                                          setState(() {
+                                            toggle =true;
+                                          });
+                                        }
+                                      },
+                                      child: toggle== true ?
+                                      Icon(Icons.visibility_off_outlined,
+                                      color: Color(0xff5771F9),) :
+                                      Icon(Icons.visibility,
+                                          color: Color(0xff5771F9)) ),
+                                  validator: validateConfirmPassword,
+                                  width: double.infinity, isPasswordType: true,
                                 ),
                                 SizedBox(
                                   height: 20,
@@ -258,34 +306,35 @@ class _Register1State extends State<Register1> {
                                     ? CircularProgressIndicator(
                                         valueColor:
                                             new AlwaysStoppedAnimation<Color>(
-                                          Color(0xff5956E9),
+                                          Color(0xff5771F9),
                                         ),
                                       )
                                     : signInsignUpButton(context, true,
                                         () async {
-                                        if (_formkey.currentState!.validate()) {
+                                        if (_formkey.currentState!.validate() && _value == true) {
                                           setState(() {
                                             loading = true;
                                           });
                                           try {
+                                            sendName();
                                             await FirebaseAuth.instance
                                                 .createUserWithEmailAndPassword(
-                                              email: _emailTextController.text
-                                                  .trim(),
-                                              password:
-                                                  _passwordEditingController
-                                                      .text,
-                                            )
-                                                .then((value) {
-                                              sendName();
-                                              Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      Register2(),
-                                                ),
-                                              );
-                                            });
+                                                  email: _emailTextController
+                                                      .text
+                                                      .trim(),
+                                                  password:
+                                                      _passwordEditingController
+                                                          .text,
+                                                )
+                                                .then(
+                                                  (value) => Navigator.push(
+                                                    context,
+                                                    MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          SignIn(),
+                                                    ),
+                                                  ),
+                                                );
 
                                             errorMessage = '';
                                           } on FirebaseAuthException catch (error) {
@@ -340,7 +389,7 @@ class _Register1State extends State<Register1> {
                             ],
                           ),
                           SizedBox(
-                            height: 13,
+                            height: 10,
                           ),
                           Row(
                             children: [

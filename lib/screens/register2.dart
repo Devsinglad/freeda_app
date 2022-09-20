@@ -1,27 +1,24 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:country_calling_code_picker/country.dart';
 import 'package:country_calling_code_picker/country_code_picker.dart';
 import 'package:country_calling_code_picker/functions.dart';
-import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:freeda_app/screen_precious/verified.dart';
-import 'package:freeda_app/screens/Row3/Identity_Verification.dart';
 import '../screen_precious/signin.dart';
-import 'verify.dart';
 import '../widgets/reuseablewidget.dart';
 import 'final_verifypage.dart';
 
-class Register2 extends StatefulWidget {
+class Register extends StatefulWidget {
   @override
-  _Register2State createState() => _Register2State();
+  _RegisterState createState() => _RegisterState();
 }
 
-class _Register2State extends State<Register2> {
+class _RegisterState extends State<Register> {
   Country? _selectedCountry;
   TextEditingController countrynameController = TextEditingController();
   TextEditingController _countryname1Controller = TextEditingController();
   String? code;
-  String dailCodeDigits = "+00";
+  String dailCodeDigits = "+000";
   @override
   void initState() {
     initCountry();
@@ -36,6 +33,23 @@ class _Register2State extends State<Register2> {
   }
 
   // picker()
+
+  // send() async {
+  //   CollectionReference _collectionRef =
+  //   FirebaseFirestore.instance.collection('usersPhoneNumber');
+  //   return _collectionRef
+  //       .doc(countrynameController.text)
+  //       .set({
+  //     'country': countrynameController.text,
+  //     'phone number': _countryname1Controller.text,
+  //   })
+  //       .then(
+  //         (value) => print('user data added'),
+  //   )
+  //       .catchError(
+  //         (error) => print("something is wrong"),
+  //   );
+  // }
 
   @override
   Widget build(BuildContext context) {

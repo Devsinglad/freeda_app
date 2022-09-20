@@ -46,7 +46,6 @@ class _MainScreenState extends State<MainScreen> {
 
   Future<void> firebaseUserInfo() async {
     final firebaseUser = FirebaseAuth.instance.currentUser?.email;
-
     var name = await FirebaseFirestore.instance
         .collection("users")
         .doc(firebaseUser)

@@ -228,6 +228,7 @@ class _SignInState extends State<SignIn> {
                       errorMessage;
                     } on FirebaseAuthException catch (error) {
                       errorMessage = error.message!;
+                      print(errorMessage);
                     } catch (e, s) {
                       print(e);
                       print(s);
