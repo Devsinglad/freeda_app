@@ -331,10 +331,10 @@ class _Register1State extends State<Register1> {
                                                     context,
                                                     MaterialPageRoute(
                                                       builder: (context) =>
-                                                          SignIn(),
+                                                        SignIn(),
                                                     ),
                                                   ),
-                                                );
+                                            );
 
                                             errorMessage = '';
                                           } on FirebaseAuthException catch (error) {

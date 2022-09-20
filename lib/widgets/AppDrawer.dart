@@ -1,10 +1,15 @@
+
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:freeda_app/models/userProfile.dart';
 import 'package:freeda_app/widgets/MyText.dart';
 import 'package:freeda_app/widgets/customButton.dart';
 
+import '../screen_precious/signin.dart';
+
 class App_Drawer extends StatelessWidget {
   const App_Drawer({Key? key}) : super(key: key);
+
 
   @override
   Widget build(BuildContext context) {
@@ -144,22 +149,27 @@ Widget userData({
       SizedBox(
         height: 214,
       ),
-      Row(
-        children: [
-          MyText(
-            title: 'LOGOUT',
-            size: 16,
-            color: Color(0xff5771F9),
-            weight: FontWeight.w700,
-          ),
-          SizedBox(
-            width: 36.65,
-          ),
-          Icon(
-            Icons.arrow_forward,
-            color: Color(0xff5771F9),
-          )
-        ],
+      GestureDetector(
+        onTap: (){
+
+          },
+        child: Row(
+          children: [
+            MyText(
+              title: 'LOGOUT',
+              size: 16,
+              color: Color(0xff5771F9),
+              weight: FontWeight.w700,
+            ),
+            SizedBox(
+              width: 36.65,
+            ),
+            Icon(
+              Icons.arrow_forward,
+              color: Color(0xff5771F9),
+            )
+          ],
+        ),
       )
     ],
   );
