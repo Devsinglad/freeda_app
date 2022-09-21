@@ -1,4 +1,6 @@
 
+import 'dart:js';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:freeda_app/models/userProfile.dart';
@@ -151,7 +153,8 @@ Widget userData({
       ),
       GestureDetector(
         onTap: (){
-
+          // FirebaseAuth.instance.signOut().then((value) {
+          //   Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>SignIn()));});
           },
         child: Row(
           children: [

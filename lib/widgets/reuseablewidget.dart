@@ -60,7 +60,7 @@ Container signInsignUpButton(
         onPressed: () {
           onTap();
         },
-        child: Text(isLogin ? 'Register' : 'SignUp',
+        child: Text(isLogin ? 'Register' : 'Next',
             style: const TextStyle(
                 color: Color(0xffFFFFFF),
                 fontSize: 16,

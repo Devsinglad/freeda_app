@@ -2,8 +2,10 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:freeda_app/screen_precious/signin.dart';
+import 'package:freeda_app/screen_precious/verified.dart';
 import 'package:freeda_app/screens/google_sign_up.dart';
 import 'package:freeda_app/screens/register2.dart';
+import '../utils/textEditingContollers.dart';
 import '../widgets/password_widget.dart';
 import '../widgets/reuseablewidget.dart';
 
@@ -20,13 +22,7 @@ class _Register1State extends State<Register1> {
   bool isLoading = false;
   bool toggle = true;
   String errorMessage = '';
-  final TextEditingController _fullNameEditingController =
-      TextEditingController();
-  final TextEditingController _emailTextController = TextEditingController();
-  final TextEditingController _passwordEditingController =
-      TextEditingController();
-  final TextEditingController _confirmPasswordEditingController =
-      TextEditingController();
+
 
   final _formkey = GlobalKey<FormState>();
   final user = FirebaseAuth.instance.currentUser ?? "";
@@ -53,8 +49,8 @@ class _Register1State extends State<Register1> {
   }
 
   String? validateConfirmPassword(String? formConfirmPassword) {
-    if (_confirmPasswordEditingController.text !=
-        _passwordEditingController.text) return 'Passwords do not match.';
+    if (confirmPasswordEditingController.text !=
+        passwordEditingController.text) return 'Passwords do not match.';
     return null;
   }
 
@@ -72,10 +68,10 @@ class _Register1State extends State<Register1> {
     CollectionReference _collectionRef =
         FirebaseFirestore.instance.collection('users');
     return _collectionRef
-        .doc(_emailTextController.text)
+        .doc(emailTextController.text)
         .set({
-          'firstname': _fullNameEditingController.text,
-          'email': _emailTextController.text,
+          'firstname': fullNameEditingController.text,
+          'email': emailTextController.text,
           'balance': "\$3000",
         })
         .then(
@@ -186,7 +182,7 @@ class _Register1State extends State<Register1> {
                                   validateFullName,
                                   'Full name ',
                                   false,
-                                  _fullNameEditingController,
+                                  fullNameEditingController,
 
                                 ),
                                 SizedBox(
@@ -197,7 +193,7 @@ class _Register1State extends State<Register1> {
                                     validateEmail,
                                     'Email Address',
                                     false,
-                                    _emailTextController),
+                                    emailTextController),
                                 SizedBox(height: 12),
                                 // passwordWidget(
                                 //   validatePassword,
@@ -213,7 +209,7 @@ class _Register1State extends State<Register1> {
                                 //   ),
                                 // ),
                                 kTextFormField(hint: "password",
-                                  textEditingController: _passwordEditingController,
+                                  textEditingController: passwordEditingController,
                                   keyboardType: TextInputType.visiblePassword,
                                   obscureText: toggle,
                                   icon: Icons.lock,
@@ -242,7 +238,7 @@ class _Register1State extends State<Register1> {
 
                                 SizedBox(height: 12),
                                 kTextFormField(hint: "password",
-                                  textEditingController: _confirmPasswordEditingController,
+                                  textEditingController: confirmPasswordEditingController,
                                   keyboardType: TextInputType.visiblePassword,
                                   obscureText: toggle,
                                   icon: Icons.lock,
@@ -309,7 +305,7 @@ class _Register1State extends State<Register1> {
                                           Color(0xff5771F9),
                                         ),
                                       )
-                                    : signInsignUpButton(context, true,
+                                    : signInsignUpButton(context, false,
                                         () async {
                                         if (_formkey.currentState!.validate() && _value == true) {
                                           setState(() {
@@ -319,11 +315,11 @@ class _Register1State extends State<Register1> {
                                             sendName();
                                             await FirebaseAuth.instance
                                                 .createUserWithEmailAndPassword(
-                                                  email: _emailTextController
+                                                  email: emailTextController
                                                       .text
                                                       .trim(),
                                                   password:
-                                                      _passwordEditingController
+                                                      passwordEditingController
                                                           .text,
                                                 )
                                                 .then(
@@ -331,7 +327,7 @@ class _Register1State extends State<Register1> {
                                                     context,
                                                     MaterialPageRoute(
                                                       builder: (context) =>
-                                                        SignIn(),
+                                                          Verified(),
                                                     ),
                                                   ),
                                             );
