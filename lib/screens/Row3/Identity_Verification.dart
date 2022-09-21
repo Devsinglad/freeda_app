@@ -6,13 +6,13 @@ import '../../widgets/AppDrawer.dart';
 import '../../widgets/Topwidget.dart';
 
 class Identity_Verification extends StatelessWidget {
-  const Identity_Verification({Key? key}) : super(key: key);
+   Identity_Verification({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        drawer: const App_Drawer(),
+        drawer:  App_Drawer(),
         body: Padding(
           padding: const EdgeInsets.all(20),
           child: Column(

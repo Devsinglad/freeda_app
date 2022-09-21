@@ -26,7 +26,7 @@ class TransactionDetailsScreen extends StatelessWidget {
     ];
     return SafeArea(
         child: Scaffold(
-      drawer: const App_Drawer(),
+      drawer:  App_Drawer(),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Column(
