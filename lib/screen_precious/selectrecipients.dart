@@ -36,14 +36,19 @@ class _SelectRecipientsState extends State<SelectRecipients> {
                     padding: const EdgeInsets.symmetric(horizontal: 25.0),
                     child: Row(
                       children: [
-                        AppButton(
-                          textColor: Colors.black,
-                          backgroundColor: Colors.white,
-                          borderColor: Colors.white,
-                          text: "",
-                          size: 40,
-                          isIcon: true,
-                          icon: Icons.arrow_back,
+                        GestureDetector(
+                          onTap:(){
+                            Navigator.pop(context);
+        },
+                          child: AppButton(
+                            textColor: Colors.black,
+                            backgroundColor: Colors.white,
+                            borderColor: Colors.white,
+                            text: "",
+                            size: 40,
+                            isIcon: true,
+                            icon: Icons.arrow_back,
+                          ),
                         ),
                         SizedBox(width: 250),
                         AppButton(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:freeda_app/screen_precious/selectrecipients.dart';
 import '../widgets/app_button.dart';
 import '../widgets/app_button2.dart';
 import '../widgets/my_text.dart';
@@ -28,14 +29,19 @@ class _RecipientsState extends State<Recipients> {
                   padding: const EdgeInsets.symmetric(horizontal: 25.0),
                   child: Row(
                     children: [
-                      AppButton(
-                        textColor: Colors.black,
-                        backgroundColor: Colors.white,
-                        borderColor: Colors.white,
-                        text: "",
-                        size: 40,
-                        isIcon: true,
-                        icon: Icons.arrow_back,
+                      GestureDetector(
+                        onTap:(){
+                          Navigator.pop(context);
+                        },
+                        child: AppButton(
+                          textColor: Colors.black,
+                          backgroundColor: Colors.white,
+                          borderColor: Colors.white,
+                          text: "",
+                          size: 40,
+                          isIcon: true,
+                          icon: Icons.arrow_back,
+                        ),
                       ),
                       SizedBox(width: 250),
                       AppButton(
@@ -460,7 +466,10 @@ class _RecipientsState extends State<Recipients> {
         ),
       ),
       floatingActionButton: FloatingActionButton.large(
-        onPressed: () {},
+        onPressed: () {
+        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>SelectRecipients()));
+
+        },
         backgroundColor: Color(0xff5771F9),
         child: MyText(title: 'ADD', size: 14, color: Colors.white),
       ),

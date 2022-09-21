@@ -50,8 +50,13 @@ class customContainer extends StatelessWidget {
 Row topRow() {
   return Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
     children: [
-      customContainer(width: 47, height: 47,customizedDecoration:
-      customDecoration,),
+      GestureDetector(
+        onTap: (){
+          // Navigator.pop(context);
+          },
+        child: customContainer(width: 47, height: 47,customizedDecoration:
+        customDecoration,),
+      ),
       customContainer(height: 47, width: 47, customizedDecoration:
       customDecoration.copyWith(image: DecorationImage(image:
       AssetImage('assets/images/option-icon.png'))),)

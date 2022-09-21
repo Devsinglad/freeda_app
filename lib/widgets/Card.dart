@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:freeda_app/widgets/customButton.dart';
 import 'package:freeda_app/widgets/reuseablewidget.dart';
 
-import '../utils/textEditingContollers.dart';
 
 class CardItems extends StatelessWidget {
    CardItems({
@@ -42,7 +41,7 @@ class CardItems extends StatelessWidget {
                validator: validateAmount,
                keyboardType: TextInputType.number,
                cursorColor: Colors.black,
-               controller: sendController,
+               // controller: sendController,
                decoration: InputDecoration(
                  border: InputBorder.none,
                  prefixText: " \$ ",

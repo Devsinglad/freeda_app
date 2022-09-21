@@ -1,17 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:freeda_app/utils/textEditingContollers.dart';
 import 'package:freeda_app/widgets/MyText.dart';
 import 'package:freeda_app/widgets/Topwidget.dart';
 import 'package:freeda_app/widgets/customButton.dart';
 
 import '../../models/Sending.dart';
+import '../../screen_precious/paymentsuccessful.dart';
 import '../../widgets/AppDrawer.dart';
 import '../../widgets/Card.dart';
 
 class SendMoney extends StatelessWidget {
 
-  int amount =3000;
-  String price = sendController.text;
 
   @override
   Widget build(BuildContext context) {
@@ -162,8 +160,9 @@ class SendMoney extends StatelessWidget {
                   children: [
                     GestureDetector(
                       onTap: (){
-                   final   balance =   price;
-                   print(balance);
+                   // final   balance =   price;
+                   // print(balance);
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>PaymentSuccessful()));
                       },
                       child: CustomButton(
                         Center(
@@ -183,22 +182,27 @@ class SendMoney extends StatelessWidget {
                         0,
                       ),
                     ),
-                    CustomButton(
-                      Center(
-                        child: MyText(
-                          title: 'Cancel',
-                          size: 18,
-                          color: Color(0xff7F8192),
-                          weight: FontWeight.w700,
+                    GestureDetector(
+                      onTap: (){
+                        Navigator.pop(context);
+                      },
+                      child: CustomButton(
+                        Center(
+                          child: MyText(
+                            title: 'Cancel',
+                            size: 18,
+                            color: Color(0xff7F8192),
+                            weight: FontWeight.w700,
+                          ),
                         ),
+                        56,
+                        162,
+                        Color(0xffF5F6FA),
+                        8,
+                        Colors.transparent,
+                        0,
+                        0,
                       ),
-                      56,
-                      162,
-                      Color(0xffF5F6FA),
-                      8,
-                      Colors.transparent,
-                      0,
-                      0,
                     ),
                   ],
                 )

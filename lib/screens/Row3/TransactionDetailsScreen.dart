@@ -5,6 +5,9 @@ import 'package:freeda_app/widgets/MyText.dart';
 import 'package:freeda_app/widgets/Topwidget.dart';
 import 'package:freeda_app/widgets/customButton.dart';
 
+import '../convert_screen/convert.dart';
+import 'BankScreen.dart';
+
 class TransactionDetailsScreen extends StatelessWidget {
   const TransactionDetailsScreen({Key? key}) : super(key: key);
 
@@ -75,57 +78,67 @@ class TransactionDetailsScreen extends StatelessWidget {
                   child: Row(
                     //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      CustomButton(
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              Icon(
-                                Icons.call_made_outlined,
-                                color: Colors.white,
-                                size: 40,
-                              ),
-                              MyText(
-                                title: 'Send',
-                                size: 16,
-                                color: Colors.white,
-                                weight: FontWeight.w600,
-                              )
-                            ],
-                          ),
-                          87,
-                          89,
-                          Color(0xff7A7AFD),
-                          10,
-                          Color(0xff7A7AFD),
-                          0,
-                          1),
+                      GestureDetector(
+                        onTap: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>BankScreen()));
+                        },
+                        child: CustomButton(
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Icon(
+                                  Icons.call_made_outlined,
+                                  color: Colors.white,
+                                  size: 40,
+                                ),
+                                MyText(
+                                  title: 'Send',
+                                  size: 16,
+                                  color: Colors.white,
+                                  weight: FontWeight.w600,
+                                )
+                              ],
+                            ),
+                            87,
+                            89,
+                            Color(0xff7A7AFD),
+                            10,
+                            Color(0xff7A7AFD),
+                            0,
+                            1),
+                      ),
                       SizedBox(
                         width: 23,
                       ),
-                      CustomButton(
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              Icon(
-                                Icons.arrow_forward,
-                                color: Colors.white,
-                                size: 40,
-                              ),
-                              MyText(
-                                title: 'Convert',
-                                size: 16,
-                                color: Colors.white,
-                                weight: FontWeight.w600,
-                              )
-                            ],
-                          ),
-                          87,
-                          89,
-                          Color(0xff5771F9),
-                          10,
-                          Color(0xff5771F9),
-                          0,
-                          1),
+                      GestureDetector(
+                        onTap: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>Convert()));
+                        },
+                        child: CustomButton(
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Icon(
+                                  Icons.arrow_forward,
+                                  color: Colors.white,
+                                  size: 40,
+                                ),
+                                MyText(
+                                  title: 'Convert',
+                                  size: 16,
+                                  color: Colors.white,
+                                  weight: FontWeight.w600,
+                                )
+                              ],
+                            ),
+                            87,
+                            89,
+                            Color(0xff5771F9),
+                            10,
+                            Color(0xff5771F9),
+                            0,
+                            1),
+                      ),
                     ],
                   ),
                 )
