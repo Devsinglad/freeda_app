@@ -2,12 +2,20 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:freeda_app/screen_precious/signin.dart';
-import 'package:freeda_app/screen_precious/verified.dart';
+
 import 'package:freeda_app/screens/google_sign_up.dart';
 import 'package:freeda_app/screens/register2.dart';
-import '../utils/textEditingContollers.dart';
+
 import '../widgets/password_widget.dart';
 import '../widgets/reuseablewidget.dart';
+
+final TextEditingController _fullNameEditingController =
+    TextEditingController();
+final TextEditingController emailTextController = TextEditingController();
+final TextEditingController _passwordEditingController =
+    TextEditingController();
+final TextEditingController _confirmPasswordEditingController =
+    TextEditingController();
 
 class Register1 extends StatefulWidget {
   const Register1({Key? key}) : super(key: key);
@@ -22,7 +30,6 @@ class _Register1State extends State<Register1> {
   bool isLoading = false;
   bool toggle = true;
   String errorMessage = '';
-
 
   final _formkey = GlobalKey<FormState>();
   final user = FirebaseAuth.instance.currentUser ?? "";
@@ -49,8 +56,8 @@ class _Register1State extends State<Register1> {
   }
 
   String? validateConfirmPassword(String? formConfirmPassword) {
-    if (confirmPasswordEditingController.text !=
-        passwordEditingController.text) return 'Passwords do not match.';
+    if (_confirmPasswordEditingController.text !=
+        _passwordEditingController.text) return 'Passwords do not match.';
     return null;
   }
 
@@ -70,7 +77,7 @@ class _Register1State extends State<Register1> {
     return _collectionRef
         .doc(emailTextController.text)
         .set({
-          'firstname': fullNameEditingController.text,
+          'firstname': _fullNameEditingController.text,
           'email': emailTextController.text,
           'balance': "\$3000",
         })
@@ -162,7 +169,9 @@ class _Register1State extends State<Register1> {
                               ),
                             ],
                           ),
-                          SizedBox(height: 20,),
+                          SizedBox(
+                            height: 20,
+                          ),
                           Text(
                             'or',
                             style: TextStyle(
@@ -182,8 +191,7 @@ class _Register1State extends State<Register1> {
                                   validateFullName,
                                   'Full name ',
                                   false,
-                                  fullNameEditingController,
-
+                                  _fullNameEditingController,
                                 ),
                                 SizedBox(
                                   height: 12,
@@ -208,59 +216,69 @@ class _Register1State extends State<Register1> {
                                 //     },
                                 //   ),
                                 // ),
-                                kTextFormField(hint: "password",
-                                  textEditingController: passwordEditingController,
+                                kTextFormField(
+                                  hint: "password",
+                                  textEditingController:
+                                      _passwordEditingController,
                                   keyboardType: TextInputType.visiblePassword,
                                   obscureText: toggle,
                                   icon: Icons.lock,
-                                  passwordIcon:  GestureDetector(
-                                      onTap: (){
-                                        if(toggle==true){
+                                  passwordIcon: GestureDetector(
+                                      onTap: () {
+                                        if (toggle == true) {
                                           setState(() {
-                                            toggle=false;
+                                            toggle = false;
                                           });
-                                        } else{
+                                        } else {
                                           setState(() {
-                                            toggle =true;
+                                            toggle = true;
                                           });
                                         }
                                       },
-                                      child: toggle== true ?
-                                      Icon(Icons.visibility_off_outlined,
-                                        color: Color(0xff5771F9),
-                                      ) :
-                                      Icon(Icons.visibility,
-                                        color: Color(0xff5771F9),
-                                      ) ),
+                                      child: toggle == true
+                                          ? Icon(
+                                              Icons.visibility_off_outlined,
+                                              color: Color(0xff5771F9),
+                                            )
+                                          : Icon(
+                                              Icons.visibility,
+                                              color: Color(0xff5771F9),
+                                            )),
                                   validator: validatePassword,
-                                  width: double.infinity, isPasswordType: true,
+                                  width: double.infinity,
+                                  isPasswordType: true,
                                 ),
 
                                 SizedBox(height: 12),
-                                kTextFormField(hint: "password",
-                                  textEditingController: confirmPasswordEditingController,
+                                kTextFormField(
+                                  hint: "password",
+                                  textEditingController:
+                                      _confirmPasswordEditingController,
                                   keyboardType: TextInputType.visiblePassword,
                                   obscureText: toggle,
                                   icon: Icons.lock,
-                                  passwordIcon:  GestureDetector(
-                                      onTap: (){
-                                        if(toggle==true){
+                                  passwordIcon: GestureDetector(
+                                      onTap: () {
+                                        if (toggle == true) {
                                           setState(() {
-                                            toggle=false;
+                                            toggle = false;
                                           });
-                                        } else{
+                                        } else {
                                           setState(() {
-                                            toggle =true;
+                                            toggle = true;
                                           });
                                         }
                                       },
-                                      child: toggle== true ?
-                                      Icon(Icons.visibility_off_outlined,
-                                      color: Color(0xff5771F9),) :
-                                      Icon(Icons.visibility,
-                                          color: Color(0xff5771F9)) ),
+                                      child: toggle == true
+                                          ? Icon(
+                                              Icons.visibility_off_outlined,
+                                              color: Color(0xff5771F9),
+                                            )
+                                          : Icon(Icons.visibility,
+                                              color: Color(0xff5771F9))),
                                   validator: validateConfirmPassword,
-                                  width: double.infinity, isPasswordType: true,
+                                  width: double.infinity,
+                                  isPasswordType: true,
                                 ),
                                 SizedBox(
                                   height: 20,
@@ -307,7 +325,8 @@ class _Register1State extends State<Register1> {
                                       )
                                     : signInsignUpButton(context, false,
                                         () async {
-                                        if (_formkey.currentState!.validate() && _value == true) {
+                                        if (_formkey.currentState!.validate() &&
+                                            _value == true) {
                                           setState(() {
                                             loading = true;
                                           });
@@ -319,7 +338,7 @@ class _Register1State extends State<Register1> {
                                                       .text
                                                       .trim(),
                                                   password:
-                                                      passwordEditingController
+                                                      _passwordEditingController
                                                           .text,
                                                 )
                                                 .then(
@@ -327,10 +346,10 @@ class _Register1State extends State<Register1> {
                                                     context,
                                                     MaterialPageRoute(
                                                       builder: (context) =>
-                                                          Verified(),
+                                                          Register2(),
                                                     ),
                                                   ),
-                                            );
+                                                );
 
                                             errorMessage = '';
                                           } on FirebaseAuthException catch (error) {

@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:freeda_app/screens/Row3/TransactionDetailsScreen.dart';
 import 'package:freeda_app/screens/Row3/send_money.dart';
 import 'package:freeda_app/widgets/MyText.dart';
 import 'package:freeda_app/widgets/customButton.dart';
@@ -23,7 +24,8 @@ class _MainScreenState extends State<MainScreen> {
   String? initAmount;
   String? email;
   String? password;
-  String uc = '12344555';
+  String? phoneNumber;
+  String? country;
 
   @override
   void initState() {
@@ -31,9 +33,12 @@ class _MainScreenState extends State<MainScreen> {
     super.initState();
     //localstorage();
     firebaseUserInfo();
+
+    //firebasePhoneNumber();
   }
 
-  // Future<void> localstorage() async {
+// when using sharedPreference!!
+  // Future<void> localStorage() async {
   //   final localsdk = await SharedPreferences.getInstance();
   //   fullname = await localsdk.getString('fullname');
   //   email = await localsdk.getString('email');
@@ -58,6 +63,20 @@ class _MainScreenState extends State<MainScreen> {
       print(value.data());
     });
   }
+
+  // Future<void> firebasePhoneNumber() async {
+  //   final firebaseUserPhone = FirebaseAuth.instance.currentUser?.email;
+  //   var userPhone = await FirebaseFirestore.instance
+  //       .collection("usersPhoneNumber")
+  //       .doc(firebaseUserPhone)
+  //       .get()
+  //       .then((value) {
+  //     phoneNumber = value['phone number'];
+  //
+  //     setState(() {});
+  //     print(value.data());
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -91,7 +110,8 @@ class _MainScreenState extends State<MainScreen> {
                             ),
                             MyText(
                               color: Colors.black,
-                              title: email.toString(),
+                              title: email
+                                  .toString(), //uc.substring(uc.length - 4).toString(),
                               size: 16,
                               weight: FontWeight.w500,
                             ),
@@ -133,7 +153,7 @@ class _MainScreenState extends State<MainScreen> {
                     width: 53,
                     height: 53,
                     icon: Icons.swap_horiz_outlined,
-                    title: uc.substring(uc.length - 4).toString(), //'Transfer',
+                    title: 'Transfer', //uc.substring(uc.length - 4).toString(),
                   ),
                   Services(
                     width: 53,
@@ -167,70 +187,84 @@ class _MainScreenState extends State<MainScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  CustomButton(
-                      Center(
-                        child: Padding(
-                          padding: const EdgeInsets.only(top: 10),
-                          child: Column(
-                            children: [
-                              MyText(
-                                title: 'Salary',
-                                size: 14,
-                                color: Colors.white,
-                                weight: FontWeight.w500,
-                              ),
-                              SizedBox(
-                                height: 5,
-                              ),
-                              MyText(
-                                title: initAmount.toString(),
-                                size: 14,
-                                color: Colors.white,
-                                weight: FontWeight.w500,
-                              ),
-                            ],
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (_) => SendMoney()));
+                    },
+                    child: CustomButton(
+                        Center(
+                          child: Padding(
+                            padding: const EdgeInsets.only(top: 10),
+                            child: Column(
+                              children: [
+                                MyText(
+                                  title: 'Salary',
+                                  size: 14,
+                                  color: Colors.white,
+                                  weight: FontWeight.w500,
+                                ),
+                                SizedBox(
+                                  height: 5,
+                                ),
+                                MyText(
+                                  title: initAmount.toString(),
+                                  size: 14,
+                                  color: Colors.white,
+                                  weight: FontWeight.w500,
+                                ),
+                              ],
+                            ),
                           ),
                         ),
-                      ),
-                      65,
-                      162,
-                      Color(0xff7A7AFD),
-                      8,
-                      Color(0xff7A7AFD),
-                      0,
-                      0),
-                  CustomButton(
-                      Center(
-                        child: Padding(
-                          padding: const EdgeInsets.only(top: 10),
-                          child: Column(
-                            children: [
-                              MyText(
-                                title: 'Transfers',
-                                size: 14,
-                                color: Colors.white,
-                                weight: FontWeight.w500,
-                              ),
-                              SizedBox(
-                                height: 5,
-                              ),
-                              MyText(
-                                title: '\$42,500',
-                                size: 14,
-                                color: Colors.white,
-                                weight: FontWeight.w500,
-                              ),
-                            ],
+                        65,
+                        162,
+                        Color(0xff7A7AFD),
+                        8,
+                        Color(0xff7A7AFD),
+                        0,
+                        0),
+                  ),
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (_) => TransactionDetailsScreen()));
+                    },
+                    child: CustomButton(
+                        Center(
+                          child: Padding(
+                            padding: const EdgeInsets.only(top: 10),
+                            child: Column(
+                              children: [
+                                MyText(
+                                  title: 'Transfers',
+                                  size: 14,
+                                  color: Colors.white,
+                                  weight: FontWeight.w500,
+                                ),
+                                SizedBox(
+                                  height: 5,
+                                ),
+                                MyText(
+                                  title: '\$42,500',
+                                  size: 14,
+                                  color: Colors.white,
+                                  weight: FontWeight.w500,
+                                ),
+                              ],
+                            ),
                           ),
                         ),
-                      ),
-                      65,
-                      162,
-                      Color(0xff5771F9),
-                      8,
-                      Color(0xff5771F9),
-                      3,
-                      6),
+                        65,
+                        162,
+                        Color(0xff5771F9),
+                        8,
+                        Color(0xff5771F9),
+                        3,
+                        6),
+                  ),
                 ],
               ),
               SizedBox(
