@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:freeda_app/utils/textEditingContollers.dart';
 import 'package:freeda_app/widgets/MyText.dart';
 import 'package:freeda_app/widgets/Topwidget.dart';
 import 'package:freeda_app/widgets/customButton.dart';
@@ -8,7 +9,9 @@ import '../../widgets/AppDrawer.dart';
 import '../../widgets/Card.dart';
 
 class SendMoney extends StatelessWidget {
-  const SendMoney({Key? key}) : super(key: key);
+
+  int amount =3000;
+  String price = sendController.text;
 
   @override
   Widget build(BuildContext context) {
@@ -37,157 +40,170 @@ class SendMoney extends StatelessWidget {
     ];
     return SafeArea(
       child: Scaffold(
-        drawer: const App_Drawer(),
+        drawer:  App_Drawer(),
         body: Padding(
           padding: const EdgeInsets.all(20),
-          child: Column(
-            children: [
-              Top(),
-              SizedBox(
-                height: 19,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  CustomButton(
-                      Center(
-                        child: MyText(
-                          title: 'Local',
-                          color: Color(0xff151940),
-                          size: 16,
-                          weight: FontWeight.w500,
-                        ),
-                      ),
-                      44,
-                      162,
-                      Color(0xffF1F2F7),
-                      8,
-                      Color(0xffF1F2F7),
-                      0,
-                      0),
-                  CustomButton(
-                    Center(
-                      child: MyText(
-                        title: 'International',
-                        color: Color(0xffFFFFFF),
-                        size: 16,
-                        weight: FontWeight.w500,
-                      ),
-                    ),
-                    44,
-                    162,
-                    Color(0xff5771F9),
-                    8,
-                    Colors.transparent,
-                    0,
-                    0,
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: 40,
-              ),
-              CardItems(),
-              SizedBox(
-                height: 17,
-              ),
-              CustomButton(
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                Top(),
+                SizedBox(
+                  height: 19,
+                ),
+                Container(
+
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Align(
-                        alignment: Alignment.topLeft,
-                        child: MyText(
-                          title: 'Send to',
-                          size: 16,
-                          color: Color(0xff151940),
-                          weight: FontWeight.w600,
+                      CustomButton(
+
+                          Center(
+
+                            child: MyText(
+                              title: 'Local',
+                              color: Color(0xff151940),
+                              size: 16,
+                              weight: FontWeight.w500,
+                            ),
+                          ),
+                          44,
+                          162,
+                          Color(0xffF1F2F7),
+                          8,
+                          Color(0xffF1F2F7),
+                          0,
+                          0),
+                      CustomButton(
+                        Center(
+                          child: MyText(
+                            title: 'International',
+                            color: Color(0xffFFFFFF),
+                            size: 16,
+                            weight: FontWeight.w500,
+                          ),
                         ),
+                        44,
+                        162,
+                        Color(0xff5771F9),
+                        8,
+                        Colors.transparent,
+                        0,
+                        0,
                       ),
-                      Expanded(
-                        child: ListView.builder(
-                            scrollDirection: Axis.horizontal,
-                            itemCount: userSent.length,
-                            itemBuilder: (ctx, i) {
-                              final send = userSent[i];
-                              return sendTo(
-                                  imageUrl: send.imageUrl, title: send.title);
-                            }),
-                      )
                     ],
                   ),
                 ),
-                135,
-                332,
-                Color(0xffF5F6FA),
-                10,
-                Colors.transparent,
-                0,
-                0,
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              MyText(
-                title: 'SHOULD BE DELIVERED BY',
-                size: 12,
-                color: Color(0xff7F8192),
-                weight: FontWeight.w600,
-              ),
-              SizedBox(
-                height: 1,
-              ),
-              MyText(
-                title: '27 APRIL 2020',
-                size: 22,
-                color: Color(0xff151940),
-                weight: FontWeight.w700,
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  CustomButton(
-                    Center(
-                      child: MyText(
-                        title: 'Transfer',
-                        size: 18,
-                        color: Colors.white,
-                        weight: FontWeight.w700,
+               const SizedBox(
+                  height: 40,
+                ),
+                CardItems(),
+                SizedBox(
+                  height: 17,
+                ),
+                CustomButton(
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Align(
+                          alignment: Alignment.topLeft,
+                          child: MyText(
+                            title: 'Send to',
+                            size: 16,
+                            color: Color(0xff151940),
+                            weight: FontWeight.w600,
+                          ),
+                        ),
+                        Expanded(
+                          child: ListView.builder(
+                              scrollDirection: Axis.horizontal,
+                              itemCount: userSent.length,
+                              itemBuilder: (ctx, i) {
+                                final send = userSent[i];
+                                return sendTo(
+                                    imageUrl: send.imageUrl, title: send.title);
+                              }),
+                        )
+                      ],
+                    ),
+                  ),
+                  135,
+                  332,
+                  Color(0xffF5F6FA),
+                  10,
+                  Colors.transparent,
+                  0,
+                  0,
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                MyText(
+                  title: 'SHOULD BE DELIVERED BY',
+                  size: 12,
+                  color: Color(0xff7F8192),
+                  weight: FontWeight.w600,
+                ),
+                SizedBox(
+                  height: 1,
+                ),
+                MyText(
+                  title: '27 APRIL 2020',
+                  size: 22,
+                  color: Color(0xff151940),
+                  weight: FontWeight.w700,
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    GestureDetector(
+                      onTap: (){
+                   final   balance =   price;
+                   print(balance);
+                      },
+                      child: CustomButton(
+                        Center(
+                          child: MyText(
+                            title: 'Transfer',
+                            size: 18,
+                            color: Colors.white,
+                            weight: FontWeight.w700,
+                          ),
+                        ),
+                        56,
+                        162,
+                        Color(0xff5771F9),
+                        8,
+                        Color(0xff5771F9),
+                        3,
+                        0,
                       ),
                     ),
-                    56,
-                    162,
-                    Color(0xff5771F9),
-                    8,
-                    Color(0xff5771F9),
-                    3,
-                    0,
-                  ),
-                  CustomButton(
-                    Center(
-                      child: MyText(
-                        title: 'Cancel',
-                        size: 18,
-                        color: Color(0xff7F8192),
-                        weight: FontWeight.w700,
+                    CustomButton(
+                      Center(
+                        child: MyText(
+                          title: 'Cancel',
+                          size: 18,
+                          color: Color(0xff7F8192),
+                          weight: FontWeight.w700,
+                        ),
                       ),
+                      56,
+                      162,
+                      Color(0xffF5F6FA),
+                      8,
+                      Colors.transparent,
+                      0,
+                      0,
                     ),
-                    56,
-                    162,
-                    Color(0xffF5F6FA),
-                    8,
-                    Colors.transparent,
-                    0,
-                    0,
-                  ),
-                ],
-              )
-            ],
+                  ],
+                )
+              ],
+            ),
           ),
         ),
       ),

@@ -2,7 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:freeda_app/screen_precious/signin.dart';
-import 'package:freeda_app/screen_precious/verified.dart';
 import 'package:freeda_app/screens/google_sign_up.dart';
 import 'package:freeda_app/screens/register2.dart';
 import '../utils/textEditingContollers.dart';
@@ -90,13 +89,10 @@ class _Register1State extends State<Register1> {
             body: SafeArea(
               child: SingleChildScrollView(
                   child: Padding(
-                padding: const EdgeInsets.only(left: 20.0, right: 20),
+                padding: const EdgeInsets.all(20),
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      SizedBox(
-                        height: 91,
-                      ),
                       Text(
                         'Register',
                         style: TextStyle(
@@ -116,7 +112,7 @@ class _Register1State extends State<Register1> {
                             children: [
                               SizedBox(
                                 height: 53,
-                                width: 161,
+                                width: MediaQuery.of(context).size.width * 0.4,
                                 child: ElevatedButton(
                                   onPressed: () {
                                     currentUser();
@@ -139,7 +135,7 @@ class _Register1State extends State<Register1> {
                               Spacer(),
                               SizedBox(
                                 height: 53,
-                                width: 161,
+                                width: MediaQuery.of(context).size.width * 0.4,
                                 child: ElevatedButton(
                                   onPressed: () {},
                                   style: ElevatedButton.styleFrom(
@@ -327,7 +323,7 @@ class _Register1State extends State<Register1> {
                                                     context,
                                                     MaterialPageRoute(
                                                       builder: (context) =>
-                                                          Verified(),
+                                                        Register(),
                                                     ),
                                                   ),
                                             );
@@ -370,7 +366,7 @@ class _Register1State extends State<Register1> {
                             ),
                           ),
                           SizedBox(
-                            height: 30,
+                            height: 10,
                           ),
                           Row(
                             children: [

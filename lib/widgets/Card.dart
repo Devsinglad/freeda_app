@@ -1,11 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:freeda_app/widgets/customButton.dart';
+import 'package:freeda_app/widgets/reuseablewidget.dart';
+
+import '../utils/textEditingContollers.dart';
 
 class CardItems extends StatelessWidget {
-  const CardItems({
+   CardItems({
     Key? key,
   }) : super(key: key);
+  String? validateAmount(String? formEmail) {
+    if (formEmail == null || formEmail.isEmpty) {
+      return 'Amount is required.';
+    }
+    return null;
+  }
 
+  final formkey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return CustomButton(
@@ -26,13 +36,23 @@ class CardItems extends StatelessWidget {
             SizedBox(
               height: 2,
             ),
-            Text(
-              '\$200.00',
-              style: TextStyle(
-                fontWeight: FontWeight.w600,
-                fontSize: 40,
-              ),
-            ),
+           Form(
+             key:formkey,
+             child: TextFormField(
+               validator: validateAmount,
+               keyboardType: TextInputType.number,
+               cursorColor: Colors.black,
+               controller: sendController,
+               decoration: InputDecoration(
+                 border: InputBorder.none,
+                 prefixText: " \$ ",
+                 prefixStyle: TextStyle(
+                   fontSize: 20,
+                   fontWeight: FontWeight.bold
+                 )
+               ),
+             ),
+           ),
             Divider(
               color: Color(0xffD8DEF6),
               thickness: 3,

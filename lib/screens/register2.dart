@@ -5,6 +5,7 @@ import 'package:country_calling_code_picker/functions.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:freeda_app/screen_precious/verified.dart';
 import '../screen_precious/signin.dart';
 import '../utils/textEditingContollers.dart';
 import '../widgets/reuseablewidget.dart';
@@ -20,6 +21,8 @@ class _RegisterState extends State<Register> {
 
   String? code;
   String dailCodeDigits = "+000";
+  bool loading = false;
+
   @override
   void initState() {
     initCountry();
@@ -46,10 +49,12 @@ class _RegisterState extends State<Register> {
     })
         .then(
           (value) => print('user data added'),
+
     )
         .catchError(
           (error) => print("something is wrong"),
     );
+
   }
 
   @override
@@ -182,16 +187,28 @@ class _RegisterState extends State<Register> {
                     ),
                   ),
                   SizedBox(height: 15),
-                  signInsignUpButton(context, true, () async {
-
+                  loading
+                      ? CircularProgressIndicator(
+                    valueColor:
+                    new AlwaysStoppedAnimation<Color>(
+                      Color(0xff5771F9),
+                    ),
+                  )
+                      :  signInsignUpButton(context, true, () async {
+                    setState(() {
+                      loading = true;
+                    });
                       retrieveCountryNameAndPhone();
+                    setState(() {
+                      loading = true;
+                    });
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => VerifyCode(
-                                  phone: countryname1Controller.text,
-                                  codeDigits: code.toString(),
-                                )));
+                            builder: (context) => Verified(
+                                  // phone: countryname1Controller.text,
+                                  // codeDigits: code.toString(),
+                            )));
                   }),
                   SizedBox(height: 24),
                   Center(

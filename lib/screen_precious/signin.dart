@@ -73,7 +73,7 @@ class _SignInState extends State<SignIn> {
                     children: [
                       Container(
                         height: 53,
-                        width: 161,
+                        width: MediaQuery.of(context).size.width * 0.4,
                         decoration: BoxDecoration(
                           color: Color(0xffF5F6FA),
                           borderRadius: BorderRadius.circular(8),
@@ -88,9 +88,10 @@ class _SignInState extends State<SignIn> {
                           ),
                         ),
                       ),
+
                       Container(
                         height: 53,
-                        width: 161,
+                        width: MediaQuery.of(context).size.width * 0.4,
                         decoration: BoxDecoration(
                           color: Color(0xffF5F6FA),
                           borderRadius: BorderRadius.circular(8),

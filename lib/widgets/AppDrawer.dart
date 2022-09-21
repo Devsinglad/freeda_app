@@ -1,6 +1,5 @@
 
-import 'dart:js';
-
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:freeda_app/models/userProfile.dart';
@@ -9,9 +8,60 @@ import 'package:freeda_app/widgets/customButton.dart';
 
 import '../screen_precious/signin.dart';
 
-class App_Drawer extends StatelessWidget {
-  const App_Drawer({Key? key}) : super(key: key);
+class App_Drawer extends StatefulWidget {
+   App_Drawer({Key? key}) : super(key: key);
 
+  @override
+  State<App_Drawer> createState() => _App_DrawerState();
+}
+
+class _App_DrawerState extends State<App_Drawer> {
+
+  String? phoneNumber;
+  String? fullname;
+
+  String? initAmount;
+
+  String? country;
+
+
+  String uc = '12344555';
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    //localstorage();
+    firebasePhoneNumberInfo();
+    firebaseNameInfo();
+  }
+
+  Future<void> firebasePhoneNumberInfo() async {
+    final firebaseUser = FirebaseAuth.instance.currentUser?.email;
+    var name = await FirebaseFirestore.instance
+        .collection("usersPhoneNumber")
+        .doc(firebaseUser)
+        .get()
+        .then((value) {
+      phoneNumber = value['phone number'];
+      country = value['country'];
+      setState(() {});
+      print(value.data());
+    });
+  }
+
+  Future<void> firebaseNameInfo() async {
+    final firebaseUser = FirebaseAuth.instance.currentUser?.email;
+    var name = await FirebaseFirestore.instance
+        .collection("users")
+        .doc(firebaseUser)
+        .get()
+        .then((value) {
+      fullname = value['firstname'];
+      setState(() {});
+      print(value.data());
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,8 +81,8 @@ class App_Drawer extends StatelessWidget {
             children: [
               userData(
                 imageUrl: 'assets/images/image.png',
-                name: 'Domhnall Gleeson',
-                country: 'United States',
+                name: fullname.toString(),
+                country: country.toString(),
               )
             ],
           ),

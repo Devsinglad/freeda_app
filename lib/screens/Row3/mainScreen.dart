@@ -63,7 +63,7 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        drawer: const App_Drawer(),
+        drawer:  App_Drawer(),
         body: Padding(
           padding: const EdgeInsets.all(20),
           child: Column(
@@ -129,11 +129,17 @@ class _MainScreenState extends State<MainScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Services(
-                    width: 53,
-                    height: 53,
-                    icon: Icons.swap_horiz_outlined,
-                    title: uc.substring(uc.length - 4).toString(), //'Transfer',
+                  GestureDetector(
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context) =>  SendMoney()));
+                    },
+                    child: Services(
+                      width: 53,
+                      height: 53,
+                      icon: Icons.swap_horiz_outlined,
+                      title:"Transfer"
+                      // uc.substring(uc.length ).toString(), //'Transfer',
+                    ),
                   ),
                   Services(
                     width: 53,
@@ -168,6 +174,7 @@ class _MainScreenState extends State<MainScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   CustomButton(
+
                       Center(
                         child: Padding(
                           padding: const EdgeInsets.only(top: 10),
@@ -200,6 +207,7 @@ class _MainScreenState extends State<MainScreen> {
                       0,
                       0),
                   CustomButton(
+
                       Center(
                         child: Padding(
                           padding: const EdgeInsets.only(top: 10),
