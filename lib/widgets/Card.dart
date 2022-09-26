@@ -2,18 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:freeda_app/widgets/customButton.dart';
 import 'package:freeda_app/widgets/reuseablewidget.dart';
 
-import '../utils/textEditingContollers.dart';
-
 class CardItems extends StatelessWidget {
-   CardItems({
+  CardItems({
     Key? key,
   }) : super(key: key);
-  String? validateAmount(String? formEmail) {
-    if (formEmail == null || formEmail.isEmpty) {
-      return 'Amount is required.';
-    }
-    return null;
-  }
+  // String? validateAmount(String? formEmail) {
+  //   if (formEmail == null || formEmail.isEmpty) {
+  //     return 'Amount is required.';
+  //   }
+  //   return null;
+  // }
 
   final formkey = GlobalKey<FormState>();
   @override
@@ -36,23 +34,23 @@ class CardItems extends StatelessWidget {
             SizedBox(
               height: 2,
             ),
-           Form(
-             key:formkey,
-             child: TextFormField(
-               validator: validateAmount,
-               keyboardType: TextInputType.number,
-               cursorColor: Colors.black,
-               controller: sendController,
-               decoration: InputDecoration(
-                 border: InputBorder.none,
-                 prefixText: " \$ ",
-                 prefixStyle: TextStyle(
-                   fontSize: 20,
-                   fontWeight: FontWeight.bold
-                 )
-               ),
-             ),
-           ),
+            // Form(
+            //   key:formkey,
+            //   child: TextFormField(
+            //     validator: validateAmount,
+            //     keyboardType: TextInputType.number,
+            //     cursorColor: Colors.black,
+            //     controller: sendController,
+            //     decoration: InputDecoration(
+            //       border: InputBorder.none,
+            //       prefixText: " \$ ",
+            //       prefixStyle: TextStyle(
+            //         fontSize: 20,
+            //         fontWeight: FontWeight.bold
+            //       )
+            //     ),
+            //   ),
+            // ),
             Divider(
               color: Color(0xffD8DEF6),
               thickness: 3,

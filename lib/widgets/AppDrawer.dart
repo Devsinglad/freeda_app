@@ -19,12 +19,12 @@ class App_Drawer extends StatefulWidget {
 
 class _App_DrawerState extends State<App_Drawer> {
   String? fullName;
+  String? country;
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    //localstorage();
     firebaseUserInfo();
   }
 
@@ -36,6 +36,7 @@ class _App_DrawerState extends State<App_Drawer> {
         .get()
         .then((value) {
       fullName = value['firstname'];
+      country = value['country'];
 
       setState(() {});
       print(value.data());
@@ -59,7 +60,7 @@ class _App_DrawerState extends State<App_Drawer> {
         child: UserData(
           imageUrl: 'assets/images/image.png',
           name: fullName.toString(),
-          country: 'United States',
+          country: country.toString(),
         ),
       ),
     );
@@ -81,6 +82,7 @@ class UserData extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         InkWell(
           onTap: () {

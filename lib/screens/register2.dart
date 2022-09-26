@@ -42,21 +42,26 @@ class _Register2State extends State<Register2> {
 
   // picker()
 
-  retrieveCountryNameAndPhone() async {
-    CollectionReference _collectionRef2 =
-        FirebaseFirestore.instance.collection('usersPhoneNumber');
-    return _collectionRef2
-        .doc(emailTextController.text)
-        .set({
-          'country': countryNameController.text,
-          'phone number': phoneNumberController.text,
-        })
-        .then(
-          (value) => print('user data added'),
-        )
-        .catchError(
-          (error) => print("something is wrong"),
-        );
+  Future<void> retrieveCountryNameAndPhone() async {
+    try {
+      CollectionReference _collectionRef2 =
+          FirebaseFirestore.instance.collection('users');
+      _collectionRef2
+          .doc(emailTextController.text)
+          .update({
+            'country': countryNameController.text,
+            'phone number': phoneNumberController.text,
+          })
+          .then(
+            (value) => print('user data added'),
+          )
+          .catchError(
+            (error) => print("something is wrong"),
+          );
+    } catch (e, s) {
+      print(e);
+      print(s);
+    }
   }
 
   @override

@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:freeda_app/screen_precious/signin.dart';
 
@@ -12,6 +14,29 @@ class Verified extends StatefulWidget {
 }
 
 class _VerifiedState extends State<Verified> {
+  String? fullName;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    firebaseUserInfo();
+  }
+
+  Future<void> firebaseUserInfo() async {
+    final firebaseUser = FirebaseAuth.instance.currentUser?.email;
+    var name = await FirebaseFirestore.instance
+        .collection("users")
+        .doc(firebaseUser)
+        .get()
+        .then((value) {
+      fullName = value['firstname'];
+
+      setState(() {});
+      print(value.data());
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,7 +56,7 @@ class _VerifiedState extends State<Verified> {
 
               // creating text
 
-              MyText(title: "Welcome Mickey!", size: 30, color: Colors.white),
+              MyText(title: fullName.toString(), size: 30, color: Colors.white),
 
               SizedBox(height: 23),
 

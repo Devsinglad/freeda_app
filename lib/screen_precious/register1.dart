@@ -71,22 +71,27 @@ class _Register1State extends State<Register1> {
   // text form fields have been validated.
 
   bool isValidated = false;
-  sendName() async {
-    CollectionReference _collectionRef =
-        FirebaseFirestore.instance.collection('users');
-    return _collectionRef
-        .doc(emailTextController.text)
-        .set({
-          'firstname': _fullNameEditingController.text,
-          'email': emailTextController.text,
-          'balance': "\$3000",
-        })
-        .then(
-          (value) => print('user data added'),
-        )
-        .catchError(
-          (error) => print("something is wrong"),
-        );
+  Future<void> sendName() async {
+    try {
+      CollectionReference _collectionRef =
+          FirebaseFirestore.instance.collection('users');
+      _collectionRef
+          .doc(emailTextController.text)
+          .set({
+            'firstname': _fullNameEditingController.text,
+            'email': emailTextController.text,
+            'balance': "\$3000",
+          })
+          .then(
+            (value) => print('user data added'),
+          )
+          .catchError(
+            (error) => print("something is wrong"),
+          );
+    } catch (e, s) {
+      print(e);
+      print(s);
+    }
   }
 
   @override
@@ -331,25 +336,23 @@ class _Register1State extends State<Register1> {
                                             loading = true;
                                           });
                                           try {
-                                            sendName();
                                             await FirebaseAuth.instance
                                                 .createUserWithEmailAndPassword(
-                                                  email: emailTextController
-                                                      .text
-                                                      .trim(),
-                                                  password:
-                                                      _passwordEditingController
-                                                          .text,
-                                                )
-                                                .then(
-                                                  (value) => Navigator.push(
-                                                    context,
-                                                    MaterialPageRoute(
-                                                      builder: (context) =>
-                                                          Register2(),
-                                                    ),
-                                                  ),
-                                                );
+                                              email: emailTextController.text
+                                                  .trim(),
+                                              password:
+                                                  _passwordEditingController
+                                                      .text,
+                                            );
+                                            sendName().then(
+                                              (value) => Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      Register2(),
+                                                ),
+                                              ),
+                                            );
 
                                             errorMessage = '';
                                           } on FirebaseAuthException catch (error) {
@@ -430,7 +433,7 @@ class _Register1State extends State<Register1> {
                               Icon(
                                 Icons.arrow_forward,
                                 color: Color(0xFF5771F9),
-                              )
+                              ),
                             ],
                           ),
                         ],

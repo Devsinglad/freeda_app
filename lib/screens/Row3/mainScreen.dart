@@ -29,12 +29,9 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
-    //localstorage();
     firebaseUserInfo();
-
-    //firebasePhoneNumber();
+    firebasePhoneNumber();
   }
 
 // when using sharedPreference!!
@@ -64,19 +61,19 @@ class _MainScreenState extends State<MainScreen> {
     });
   }
 
-  // Future<void> firebasePhoneNumber() async {
-  //   final firebaseUserPhone = FirebaseAuth.instance.currentUser?.email;
-  //   var userPhone = await FirebaseFirestore.instance
-  //       .collection("usersPhoneNumber")
-  //       .doc(firebaseUserPhone)
-  //       .get()
-  //       .then((value) {
-  //     phoneNumber = value['phone number'];
-  //
-  //     setState(() {});
-  //     print(value.data());
-  //   });
-  // }
+  Future<void> firebasePhoneNumber() async {
+    final firebaseUserPhone = FirebaseAuth.instance.currentUser?.email;
+    var userPhone = await FirebaseFirestore.instance
+        .collection("users")
+        .doc(firebaseUserPhone)
+        .get()
+        .then((value) {
+      phoneNumber = value['phone number'];
+
+      setState(() {});
+      print(value.data());
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -108,12 +105,24 @@ class _MainScreenState extends State<MainScreen> {
                               size: 26,
                               weight: FontWeight.bold,
                             ),
-                            MyText(
-                              color: Colors.black,
-                              title: email
-                                  .toString(), //uc.substring(uc.length - 4).toString(),
-                              size: 16,
-                              weight: FontWeight.w500,
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                MyText(
+                                  color: Colors.black,
+                                  title: 'account phone number ends ',
+                                  size: 16,
+                                  weight: FontWeight.w500,
+                                ),
+                                MyText(
+                                  color: Colors.black,
+                                  title: phoneNumber.toString().substring(
+                                      phoneNumber!.length -
+                                          4), //uc.substring(uc.length - 4).toString(),
+                                  size: 16,
+                                  weight: FontWeight.w500,
+                                ),
+                              ],
                             ),
                           ],
                         ),

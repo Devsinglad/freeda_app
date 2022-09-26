@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:freeda_app/utils/textEditingContollers.dart';
 import 'package:freeda_app/widgets/MyText.dart';
 import 'package:freeda_app/widgets/Topwidget.dart';
 import 'package:freeda_app/widgets/customButton.dart';
@@ -9,9 +8,8 @@ import '../../widgets/AppDrawer.dart';
 import '../../widgets/Card.dart';
 
 class SendMoney extends StatelessWidget {
-
-  int amount =3000;
-  String price = sendController.text;
+  // int amount = 3000;
+  // String price = sendController.text;
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +38,7 @@ class SendMoney extends StatelessWidget {
     ];
     return SafeArea(
       child: Scaffold(
-        drawer:  App_Drawer(),
+        drawer: App_Drawer(),
         body: Padding(
           padding: const EdgeInsets.all(20),
           child: SingleChildScrollView(
@@ -51,14 +49,11 @@ class SendMoney extends StatelessWidget {
                   height: 19,
                 ),
                 Container(
-
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       CustomButton(
-
                           Center(
-
                             child: MyText(
                               title: 'Local',
                               color: Color(0xff151940),
@@ -93,7 +88,7 @@ class SendMoney extends StatelessWidget {
                     ],
                   ),
                 ),
-               const SizedBox(
+                const SizedBox(
                   height: 40,
                 ),
                 CardItems(),
@@ -160,28 +155,22 @@ class SendMoney extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    GestureDetector(
-                      onTap: (){
-                   final   balance =   price;
-                   print(balance);
-                      },
-                      child: CustomButton(
-                        Center(
-                          child: MyText(
-                            title: 'Transfer',
-                            size: 18,
-                            color: Colors.white,
-                            weight: FontWeight.w700,
-                          ),
+                    CustomButton(
+                      Center(
+                        child: MyText(
+                          title: 'Transfer',
+                          size: 18,
+                          color: Colors.white,
+                          weight: FontWeight.w700,
                         ),
-                        56,
-                        162,
-                        Color(0xff5771F9),
-                        8,
-                        Color(0xff5771F9),
-                        3,
-                        0,
                       ),
+                      56,
+                      162,
+                      Color(0xff5771F9),
+                      8,
+                      Color(0xff5771F9),
+                      3,
+                      0,
                     ),
                     CustomButton(
                       Center(

@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:freeda_app/widgets/AppDrawer.dart';
 import 'package:freeda_app/widgets/MyText.dart';
@@ -5,14 +7,30 @@ import 'package:freeda_app/widgets/TopIcon2.dart';
 import 'package:freeda_app/widgets/customButton.dart';
 
 class EditProfile extends StatelessWidget {
-  const EditProfile({Key? key}) : super(key: key);
+  EditProfile({Key? key}) : super(key: key);
+  final _nameController = TextEditingController();
+  final _locationController = TextEditingController();
+  final _adressController = TextEditingController();
+  final _phoneController = TextEditingController();
+  String? fullName;
+  String? country;
+  String? phoneNumber;
+  @override
+  Future<void> firebaseUserInfo() async {
+    final firebaseUser = await FirebaseAuth.instance.currentUser?.email;
+    var Edit = FirebaseFirestore.instance
+        .collection('users')
+        .doc(firebaseUser)
+        .get()
+        .then((value) {
+      fullName = value['firstname'];
+      country = value['country'];
+      phoneNumber = value['phone number'];
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-    final _nameController = TextEditingController();
-    final _locationController = TextEditingController();
-    final _adressController = TextEditingController();
-    final _phoneController = TextEditingController();
     return SafeArea(
       child: Scaffold(
         drawer: App_Drawer(),

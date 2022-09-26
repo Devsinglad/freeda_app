@@ -15,8 +15,9 @@ class Top extends StatelessWidget {
       children: [
         InkWell(
           onTap: () {
-            Navigator.push(
-                context, MaterialPageRoute(builder: (_) => App_Drawer()));
+            print('now pressed');
+
+            print('pressed');
           },
           child: CustomButton(
             Icon(
