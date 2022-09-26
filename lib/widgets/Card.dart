@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:freeda_app/Provider/provider.dart';
 import 'package:freeda_app/widgets/customButton.dart';
 import 'package:freeda_app/widgets/reuseablewidget.dart';
+import 'package:provider/provider.dart';
 
 class CardItems extends StatelessWidget {
   CardItems({
@@ -16,6 +18,7 @@ class CardItems extends StatelessWidget {
   final formkey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
+    var data = Provider.of<ProviderDB>(context);
     return CustomButton(
       Padding(
         padding: const EdgeInsets.all(20),
@@ -34,23 +37,6 @@ class CardItems extends StatelessWidget {
             SizedBox(
               height: 2,
             ),
-            // Form(
-            //   key:formkey,
-            //   child: TextFormField(
-            //     validator: validateAmount,
-            //     keyboardType: TextInputType.number,
-            //     cursorColor: Colors.black,
-            //     controller: sendController,
-            //     decoration: InputDecoration(
-            //       border: InputBorder.none,
-            //       prefixText: " \$ ",
-            //       prefixStyle: TextStyle(
-            //         fontSize: 20,
-            //         fontWeight: FontWeight.bold
-            //       )
-            //     ),
-            //   ),
-            // ),
             Divider(
               color: Color(0xffD8DEF6),
               thickness: 3,
@@ -67,6 +53,26 @@ class CardItems extends StatelessWidget {
                     color: Color(0xff7F8192),
                     fontSize: 18,
                     fontWeight: FontWeight.w700,
+                  ),
+                ),
+                Container(
+                  height: 30,
+                  width: 200,
+                  color: Colors.red,
+                  child: Form(
+                    key: formkey,
+                    child: TextFormField(
+                      keyboardType: TextInputType.number,
+                      cursorColor: Colors.black,
+                      controller: data.amountController,
+                      decoration: InputDecoration(
+                        border: InputBorder.none,
+                        contentPadding: EdgeInsets.symmetric(vertical: 10),
+                        prefixText: " \$ ",
+                        prefixStyle: TextStyle(
+                            fontSize: 20, fontWeight: FontWeight.bold),
+                      ),
+                    ),
                   ),
                 ),
                 Icon(

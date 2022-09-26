@@ -14,7 +14,9 @@ import 'package:freeda_app/screens/register2.dart';
 
 import 'package:freeda_app/screen_precious/splashscreen.dart';
 import 'package:device_preview/device_preview.dart';
+import 'package:provider/provider.dart';
 
+import 'Provider/provider.dart';
 import 'models/Balances.dart';
 
 Future<void> main() async {
@@ -29,13 +31,17 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      useInheritedMediaQuery: true,
-      locale: DevicePreview.locale(context),
-      builder: DevicePreview.appBuilder,
-        home:SplashScreen(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => ProviderDB()),
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        useInheritedMediaQuery: true,
+        locale: DevicePreview.locale(context),
+        builder: DevicePreview.appBuilder,
+        home: SplashScreen(),
+      ),
     );
   }
 }
-

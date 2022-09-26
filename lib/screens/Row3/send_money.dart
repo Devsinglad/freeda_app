@@ -1,8 +1,12 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:freeda_app/widgets/MyText.dart';
 import 'package:freeda_app/widgets/Topwidget.dart';
 import 'package:freeda_app/widgets/customButton.dart';
+import 'package:provider/provider.dart';
 
+import '../../Provider/provider.dart';
 import '../../models/Sending.dart';
 import '../../widgets/AppDrawer.dart';
 import '../../widgets/Card.dart';
@@ -14,6 +18,7 @@ class SendMoney extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //my list!!
+    var data = Provider.of<ProviderDB>(context, listen: false);
     final userSent = <Sending>[
       Sending(
         imageUrl: 'assets/images/image6.png',
@@ -155,22 +160,27 @@ class SendMoney extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    CustomButton(
-                      Center(
-                        child: MyText(
-                          title: 'Transfer',
-                          size: 18,
-                          color: Colors.white,
-                          weight: FontWeight.w700,
+                    InkWell(
+                      onTap: () async {
+                        data.sendmoney();
+                      },
+                      child: CustomButton(
+                        Center(
+                          child: MyText(
+                            title: 'Transfer',
+                            size: 18,
+                            color: Colors.white,
+                            weight: FontWeight.w700,
+                          ),
                         ),
+                        56,
+                        162,
+                        Color(0xff5771F9),
+                        8,
+                        Color(0xff5771F9),
+                        3,
+                        0,
                       ),
-                      56,
-                      162,
-                      Color(0xff5771F9),
-                      8,
-                      Color(0xff5771F9),
-                      3,
-                      0,
                     ),
                     CustomButton(
                       Center(
