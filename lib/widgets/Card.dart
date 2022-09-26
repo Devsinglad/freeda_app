@@ -58,7 +58,7 @@ class CardItems extends StatelessWidget {
                 Container(
                   height: 30,
                   width: 200,
-                  color: Colors.red,
+                  color: Colors.transparent,
                   child: Form(
                     key: formkey,
                     child: TextFormField(
@@ -67,7 +67,8 @@ class CardItems extends StatelessWidget {
                       controller: data.amountController,
                       decoration: InputDecoration(
                         border: InputBorder.none,
-                        contentPadding: EdgeInsets.symmetric(vertical: 10),
+                        contentPadding:
+                            EdgeInsets.symmetric(vertical: 10, horizontal: 50),
                         prefixText: " \$ ",
                         prefixStyle: TextStyle(
                             fontSize: 20, fontWeight: FontWeight.bold),

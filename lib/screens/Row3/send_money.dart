@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:freeda_app/screens/Row3/TransactionDetailsScreen.dart';
 import 'package:freeda_app/widgets/MyText.dart';
 import 'package:freeda_app/widgets/Topwidget.dart';
 import 'package:freeda_app/widgets/customButton.dart';
@@ -162,7 +163,12 @@ class SendMoney extends StatelessWidget {
                   children: [
                     InkWell(
                       onTap: () async {
-                        data.sendmoney();
+                        data.sendmoney().then((value) {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (_) => TransactionDetailsScreen()));
+                        });
                       },
                       child: CustomButton(
                         Center(

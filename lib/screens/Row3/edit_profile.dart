@@ -5,28 +5,36 @@ import 'package:freeda_app/widgets/AppDrawer.dart';
 import 'package:freeda_app/widgets/MyText.dart';
 import 'package:freeda_app/widgets/TopIcon2.dart';
 import 'package:freeda_app/widgets/customButton.dart';
+import 'package:image_picker/image_picker.dart';
+import 'dart:io';
 
-class EditProfile extends StatelessWidget {
+class EditProfile extends StatefulWidget {
   EditProfile({Key? key}) : super(key: key);
-  final _nameController = TextEditingController();
-  final _locationController = TextEditingController();
-  final _adressController = TextEditingController();
-  final _phoneController = TextEditingController();
-  String? fullName;
-  String? country;
-  String? phoneNumber;
+
   @override
-  Future<void> firebaseUserInfo() async {
-    final firebaseUser = await FirebaseAuth.instance.currentUser?.email;
-    var Edit = FirebaseFirestore.instance
-        .collection('users')
-        .doc(firebaseUser)
-        .get()
-        .then((value) {
-      fullName = value['firstname'];
-      country = value['country'];
-      phoneNumber = value['phone number'];
-    });
+  State<EditProfile> createState() => _EditProfileState();
+}
+
+class _EditProfileState extends State<EditProfile> {
+  final _nameController = TextEditingController();
+
+  final _locationController = TextEditingController();
+
+  final _adressController = TextEditingController();
+
+  final _phoneController = TextEditingController();
+  final ImagePicker _picker = ImagePicker();
+
+  File? savedimage;
+
+  Future userPics() async {
+    // Pick an image
+    final XFile? image = await _picker.pickImage(source: ImageSource.camera);
+    savedimage = File(image!.path);
+    setState(() {});
+    // Capture a photo
+    // final XFile? photo = await _picker.pickImage(source: ImageSource.camera);
+    // Pick a video
   }
 
   @override
@@ -56,10 +64,22 @@ class EditProfile extends StatelessWidget {
                 SizedBox(
                   height: 5,
                 ),
-                Image.asset(
-                  'assets/images/image.png',
-                  height: 93,
-                  width: 97,
+                InkWell(
+                  onTap: () async {
+                    print('object');
+                    userPics();
+                  },
+                  child: savedimage == null
+                      ? Image.asset(
+                          'assets/images/image.png',
+                          height: 93,
+                          width: 97,
+                        )
+                      : Image.file(
+                          savedimage!,
+                          height: 93,
+                          width: 97,
+                        ),
                 ),
                 MyText(
                   title: 'Change Profile Picture',
@@ -97,21 +117,26 @@ class EditProfile extends StatelessWidget {
                 SizedBox(
                   height: 20,
                 ),
-                CustomButton(
-                    Center(
-                      child: MyText(
-                          color: Colors.white,
-                          title: 'Save Changes',
-                          size: 18,
-                          weight: FontWeight.w700),
-                    ),
-                    56,
-                    332,
-                    Color(0xff5771F9),
-                    8,
-                    Colors.transparent,
-                    0,
-                    0)
+                InkWell(
+                  onTap: () {
+                    CircularProgressIndicator;
+                  },
+                  child: CustomButton(
+                      Center(
+                        child: MyText(
+                            color: Colors.white,
+                            title: 'Save Changes',
+                            size: 18,
+                            weight: FontWeight.w700),
+                      ),
+                      56,
+                      332,
+                      Color(0xff5771F9),
+                      8,
+                      Colors.transparent,
+                      0,
+                      0),
+                )
               ],
             ),
           ),
