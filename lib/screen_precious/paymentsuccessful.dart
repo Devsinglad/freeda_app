@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:freeda_app/screen_precious/recipients.dart';
 
 import 'package:line_icons/line_icon.dart';
 import 'package:line_icons/line_icons.dart';
@@ -32,14 +33,20 @@ class _PaymentSuccessfulState extends State<PaymentSuccessful> {
                     padding: const EdgeInsets.symmetric(horizontal: 25.0),
                     child: Row(
                       children: [
-                        AppButton(
-                          textColor: Colors.black,
-                          backgroundColor: Colors.white,
-                          borderColor: Colors.white,
-                          text: "",
-                          size: 40,
-                          isIcon: true,
-                          icon: Icons.arrow_back,
+                        GestureDetector(
+                          onTap:(){
+                                                         Navigator.pop(context);
+
+        }                   ,
+                          child: AppButton(
+                            textColor: Colors.black,
+                            backgroundColor: Colors.white,
+                            borderColor: Colors.white,
+                            text: "",
+                            size: 40,
+                            isIcon: true,
+                            icon: Icons.arrow_back,
+                          ),
                         ),
                         SizedBox(width: 250),
                         AppButton(
@@ -61,7 +68,7 @@ class _PaymentSuccessfulState extends State<PaymentSuccessful> {
 
               //importing image
 
-              Center(child: Image.asset("images/hand.png")),
+              Center(child: Image.asset("assets/images/hand.png")),
 
               SizedBox(height: 10),
 
@@ -128,7 +135,7 @@ class _PaymentSuccessfulState extends State<PaymentSuccessful> {
                 child: Row(
                   children: [
                     SizedBox(width: 12),
-                    Image.asset('images/Rectangle 34.png'),
+                    Image.asset('assets/images/Rectangle 34.png'),
                     SizedBox(width: 12),
                     Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -237,15 +244,20 @@ class _PaymentSuccessfulState extends State<PaymentSuccessful> {
 
               // creating app button
 
-              AppButtonBig(
-                  textColor: Colors.white,
-                  backgroundColor: Color(0xff5771F9),
-                  borderColor: Colors.white,
-                  text: 'Track',
-                  height: 56,
-                  width: 186,
-                  value: 8,
-                  size: 18),
+              GestureDetector(
+                onTap: (){
+                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>Recipients()));
+                },
+                child: AppButtonBig(
+                    textColor: Colors.white,
+                    backgroundColor: Color(0xff5771F9),
+                    borderColor: Colors.white,
+                    text: 'Track',
+                    height: 56,
+                    width: 186,
+                    value: 8,
+                    size: 18),
+              ),
             ],
           ),
         ),

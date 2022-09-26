@@ -7,6 +7,8 @@ import 'package:freeda_app/widgets/MyText.dart';
 import 'package:freeda_app/widgets/customButton.dart';
 
 import '../screen_precious/signin.dart';
+import '../screens/Row4/add_new_card/add_new_card_screen.dart';
+import '../screens/transferred_screen/transferred_screen.dart';
 
 class App_Drawer extends StatefulWidget {
   const App_Drawer({
@@ -120,7 +122,7 @@ class UserData extends StatelessWidget {
         InkWell(
           onTap: () {
             Navigator.push(
-                context, MaterialPageRoute(builder: (_) => EditProfile()));
+                context, MaterialPageRoute(builder: (context) => EditProfile()));
           },
           child: MyText(
             title: 'Profile',
@@ -145,10 +147,15 @@ class UserData extends StatelessWidget {
         SizedBox(
           height: 17,
         ),
-        MyText(
-          title: 'History',
-          size: 18,
-          color: Color(0xff7F8192),
+        GestureDetector(
+          onTap: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context)=>Transferred()));
+          },
+          child: MyText(
+            title: 'History',
+            size: 18,
+            color: Color(0xff7F8192),
+          ),
         ),
         Divider(
           thickness: 2,
@@ -158,10 +165,15 @@ class UserData extends StatelessWidget {
         ),
         Row(
           children: [
-            MyText(
-              title: 'Debit Card',
-              size: 18,
-              color: Color(0xff7F8192),
+            GestureDetector(
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>AddNewCardScreen()));
+              },
+              child: MyText(
+                title: 'Debit Card',
+                size: 18,
+                color: Color(0xff7F8192),
+              ),
             ),
             SizedBox(
               width: 21,
